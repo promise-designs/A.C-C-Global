@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gallery - A.C C Global Solar Energy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="solar gallery, solar installation photos, solar products Nigeria, solar energy videos" name="keywords">
+    <meta content="Explore our gallery of solar installations, products, team, and happy customers across Nigeria." name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Gallery Custom Styles -->
+    <style>
+        /* ===== GALLERY STYLES ===== */
+        .gallery-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+            background-size: 60px 60px;
+            animation: bgMove 20s linear infinite;
+        }
+        @keyframes bgMove {
+            from { background-position: 0 0; }
+            to { background-position: 60px 60px; }
+        }
+
+        .gallery-masonry {
+            column-count: 3;
+            column-gap: 15px;
+        }
+        @media (max-width: 991px) { .gallery-masonry { column-count: 2; } }
+        @media (max-width: 575px) { .gallery-masonry { column-count: 1; } }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 15px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-item.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(196,30,58,0.9) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-overlay h5 {
+            color: white;
+            font-weight: 600;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay h5 {
+            transform: translateY(0);
+        }
+        .gallery-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #C41E3A;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .gallery-item:hover .gallery-icon {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .gallery-filter-btn {
+            border: 2px solid rgba(255,255,255,0.2);
+            background: transparent;
+            color: white;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, #C41E3A, #0d6efd);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        .gallery-filter-btn:hover::before,
+        .gallery-filter-btn.active::before {
+            left: 0;
+        }
+        .gallery-filter-btn:hover,
+        .gallery-filter-btn.active {
+            border-color: transparent;
+            color: white;
+        }
+
+        .gallery-counter {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #C41E3A, #0d6efd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .video-carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+        }
+        .video-carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .video-slide {
+            min-width: 100%;
+            padding: 0 10px;
+        }
+        .video-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #1a1a2e;
+        }
+        .video-card video {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        .video-play-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px; height: 80px;
+            background: rgba(196,30,58,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .video-play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: #C41E3A;
+        }
+        .video-play-btn.playing {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .video-info {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 30px 20px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px; height: 60px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-arrow:hover {
+            background: #C41E3A;
+            border-color: #C41E3A;
+        }
+        .carousel-arrow.prev { left: 20px; }
+        .carousel-arrow.next { right: 20px; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .carousel-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .carousel-dot.active {
+            background: #C41E3A;
+            width: 35px;
+            border-radius: 6px;
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 15px;
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .lightbox.active .lightbox-img {
+            transform: scale(1);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-close:hover {
+            background: #C41E3A;
+            transform: rotate(90deg);
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px; height: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-nav:hover { background: #C41E3A; }
+        .lightbox-nav.prev { left: 30px; }
+        .lightbox-nav.next { right: 30px; }
+
+        .gallery-particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(196,30,58,0.3);
+            pointer-events: none;
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            from { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            to { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Spinner Start -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<!-- Spinner End -->
+
+<!-- Topbar Start -->
+<div class="container-fluid bg-primary px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a href="tel:+2349065604615"><small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>0906 560 4615</small></a>
+                <a href="#"><small class="me-3 text-light"><i class="fa fa-truck me-2"></i>Nationwide Delivery</small></a>
+                <a href="https://wa.me/2349065604615" target="_blank"><small class="text-light"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</small></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-sun me-3"></i>A.C C Global Solar Energy</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-installation.html" class="dropdown-item">Solar Installation</a>
+                        <a href="maintenance-repair.html" class="dropdown-item">Maintenance & Repair</a>
+                        <a href="energy-consultation.html" class="dropdown-item">Energy Consultation</a>
+                        <a href="nationwide-delivery.html" class="dropdown-item">Nationwide Delivery</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-panels.html" class="dropdown-item">Solar Panels</a>
+                        <a href="solar-batteries.html" class="dropdown-item">Solar Batteries</a>
+                        <a href="solar-inverters.html" class="dropdown-item">Solar Inverters</a>
+                        <a href="charge-controllers.html" class="dropdown-item">Charge Controllers</a>
+                        <a href="solar-freezers.html" class="dropdown-item">Solar Freezers</a>
+                        <a href="solar-generators.html" class="dropdown-item">Solar Generators</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="other-products.html" class="dropdown-item">Other Products</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-item nav-link active">Gallery</a>
+                <a href="contact.php" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quote." class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" target="_blank"><i class="fab fa-whatsapp me-2"></i>Get a Quote</a>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Header -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Our Gallery</h3>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active text-white">Gallery</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- Navbar & Hero End -->
+<!-- Gallery Hero Start -->
+<div class="container-fluid gallery-hero py-5 position-relative">
+    <div id="galleryParticles"></div>
+    
+    <div class="container py-5 position-relative">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3 text-white">Our Gallery</h5>
+            <h1 class="text-white mb-3">Solar Energy in Action</h1>
+            <p class="text-white-50 mb-4">Explore our installations, products, and satisfied customers across Nigeria. See the quality and professionalism that sets us apart.</p>
+            
+            <!-- Animated Counters -->
+            <div class="row g-4 justify-content-center mb-5">
+                <div class="col-6 col-md-3">
+                    <div class="text-center">
+                        <div class="gallery-counter" data-target="500">0</div>
+                        <p class="text-white-50">Installations</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="text-center">
+                        <div class="gallery-counter" data-target="50">0</div>
+                        <p class="text-white-50">Cities Covered</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="text-center">
+                        <div class="gallery-counter" data-target="1000">0</div>
+                        <p class="text-white-50">Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="text-center">
+                        <div class="gallery-counter" data-target="5">0</div>
+                        <p class="text-white-50">Years Experience</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+                <button class="gallery-filter-btn active" onclick="filterGallery('all', this)">
+                    <i class="fa fa-th me-2"></i>All Photos
+                </button>
+                <button class="gallery-filter-btn" onclick="filterGallery('installations', this)">
+                    <i class="fa fa-solar-panel me-2"></i>Installations
+                </button>
+                <button class="gallery-filter-btn" onclick="filterGallery('products', this)">
+                    <i class="fa fa-box me-2"></i>Products
+                </button>
+                <button class="gallery-filter-btn" onclick="filterGallery('team', this)">
+                    <i class="fa fa-users me-2"></i>Our Team
+                </button>
+                <button class="gallery-filter-btn" onclick="filterGallery('customers', this)">
+                    <i class="fa fa-smile me-2"></i>Happy Customers
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Gallery Hero End -->
+<!-- Photo Gallery Start -->
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="gallery-masonry" id="galleryGrid">
+            
+            <!-- Installations -->
+            <div class="gallery-item" data-category="installations" onclick="openLightbox(0)">
+                <img src="img/gallery/install-1.jpg" alt="Solar Panel Installation Lagos">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-map-marker-alt me-2"></i>Residential Installation - Lekki, Lagos</h5>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="installations" onclick="openLightbox(1)">
+                <img src="img/gallery/install-2.jpg" alt="Commercial Solar Installation">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-building me-2"></i>Commercial Setup - Victoria Island</h5>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="installations" onclick="openLightbox(2)">
+                <img src="img/gallery/install-3.jpg" alt="Solar Farm Installation">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-industry me-2"></i>Industrial Solar Farm - Ibadan</h5>
+                </div>
+            </div>
+            
+            <!-- Products -->
+            <div class="gallery-item" data-category="products" onclick="openLightbox(3)">
+                <img src="img/gallery/product-1.jpg" alt="Solar Panels Display">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-solar-panel me-2"></i>300W Monocrystalline Panels</h5>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="products" onclick="openLightbox(4)">
+                <img src="img/gallery/product-2.jpg" alt="Solar Batteries">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-car-battery me-2"></i>200Ah Deep Cycle Batteries</h5>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="products" onclick="openLightbox(5)">
+                <img src="img/gallery/product-3.jpg" alt="Solar Inverters">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-bolt me-2"></i>5KVA Pure Sine Wave Inverter</h5>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="products" onclick="openLightbox(6)">
+                <img src="img/gallery/product-4.jpg" alt="Solar Freezer">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-snowflake me-2"></i>150L Solar Freezer</h5>
+                </div>
+            </div>
+            
+            <!-- Team -->
+            <div class="gallery-item" data-category="team" onclick="openLightbox(7)">
+                <img src="img/gallery/team-1.jpg" alt="A.C C Global Team">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-users me-2"></i>Our Expert Installation Team</h5>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="team" onclick="openLightbox(8)">
+                <img src="img/gallery/team-2.jpg" alt="Team at Work">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-hard-hat me-2"></i>On-Site Installation Work</h5>
+                </div>
+            </div>
+            
+            <!-- Customers -->
+            <div class="gallery-item" data-category="customers" onclick="openLightbox(9)">
+                <img src="img/gallery/customer-1.jpg" alt="Happy Customer">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-smile me-2"></i>Mr. Adeyemi - Lekki</h5>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="customers" onclick="openLightbox(10)">
+                <img src="img/gallery/customer-2.jpg" alt="Customer Testimonial">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-star me-2"></i>Shop Owner - Alaba Market</h5>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="customers" onclick="openLightbox(11)">
+                <img src="img/gallery/customer-3.jpg" alt="Satisfied Client">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon"><i class="fa fa-expand"></i></div>
+                    <h5><i class="fa fa-home me-2"></i>Mrs. Okonkwo - Abuja</h5>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- Photo Gallery End -->
+<!-- Video Gallery Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Video Showcase</h5>
+            <h1 class="mb-0">See Us in Action</h1>
+            <p class="mb-0 mt-3">Watch our installation process, product demos, and customer testimonials.</p>
+        </div>
+        
+        <div class="video-carousel-container position-relative">
+            <div class="video-carousel-track" id="videoTrack">
+                
+                <!-- Video Slide 1 -->
+                <div class="video-slide">
+                    <div class="video-card">
+                        <video id="video1" poster="img/gallery/video-thumb-1.jpg" preload="metadata">
+                            <source src="videos/installation-process.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn" onclick="toggleVideo('video1', this)">
+                            <i class="fa fa-play"></i>
+                        </div>
+                        <div class="video-info">
+                            <h5 class="mb-1"><i class="fa fa-solar-panel me-2 text-primary"></i>Complete Installation Process</h5>
+                            <p class="mb-0 small text-white-50">Watch how we install a full 5KVA solar system from start to finish.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Slide 2 -->
+                <div class="video-slide">
+                    <div class="video-card">
+                        <video id="video2" poster="img/gallery/video-thumb-2.jpg" preload="metadata">
+                            <source src="videos/product-demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn" onclick="toggleVideo('video2', this)">
+                            <i class="fa fa-play"></i>
+                        </div>
+                        <div class="video-info">
+                            <h5 class="mb-1"><i class="fa fa-box-open me-2 text-primary"></i>Solar Product Showcase</h5>
+                            <p class="mb-0 small text-white-50">See our range of panels, batteries, inverters, and accessories.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Slide 3 -->
+                <div class="video-slide">
+                    <div class="video-card">
+                        <video id="video3" poster="img/gallery/video-thumb-3.jpg" preload="metadata">
+                            <source src="videos/customer-review.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn" onclick="toggleVideo('video3', this)">
+                            <i class="fa fa-play"></i>
+                        </div>
+                        <div class="video-info">
+                            <h5 class="mb-1"><i class="fa fa-comments me-2 text-primary"></i>Customer Testimonial</h5>
+                            <p class="mb-0 small text-white-50">Hear from Mr. Adeyemi about his 3-month solar experience.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Slide 4 -->
+                <div class="video-slide">
+                    <div class="video-card">
+                        <video id="video4" poster="img/gallery/video-thumb-4.jpg" preload="metadata">
+                            <source src="videos/nationwide-delivery.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-play-btn" onclick="toggleVideo('video4', this)">
+                            <i class="fa fa-play"></i>
+                        </div>
+                        <div class="video-info">
+                            <h5 class="mb-1"><i class="fa fa-truck me-2 text-primary"></i>Nationwide Delivery</h5>
+                            <p class="mb-0 small text-white-50">See how we safely deliver solar products to all 36 states.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Carousel Arrows -->
+            <button class="carousel-arrow prev" onclick="moveVideoSlide(-1)">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            <button class="carousel-arrow next" onclick="moveVideoSlide(1)">
+                <i class="fa fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <!-- Carousel Dots -->
+        <div class="carousel-dots" id="videoDots">
+            <div class="carousel-dot active" onclick="goToVideoSlide(0)"></div>
+            <div class="carousel-dot" onclick="goToVideoSlide(1)"></div>
+            <div class="carousel-dot" onclick="goToVideoSlide(2)"></div>
+            <div class="carousel-dot" onclick="goToVideoSlide(3)"></div>
+        </div>
+    </div>
+</div>
+<!-- Video Gallery End -->
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-close" onclick="closeLightbox(event)">
+        <i class="fa fa-times"></i>
+    </div>
+    <button class="lightbox-nav prev" onclick="changeLightbox(-1); event.stopPropagation();">
+        <i class="fa fa-chevron-left"></i>
+    </button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav next" onclick="changeLightbox(1); event.stopPropagation();">
+        <i class="fa fa-chevron-right"></i>
+    </button>
+</div>
+
+<!-- Footer Start -->
+<div class="container-fluid footer py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Get In Touch</h4>
+                    <a href="https://maps.google.com/?q=Alaba+International+Market+Ojo+Lagos" target="_blank"><i class="fas fa-home me-2"></i> Shop F1485B, Alaba International Market, Ojo, Lagos</a>
+                    <a href="mailto:accglobalsolar@gmail.com"><i class="fas fa-envelope me-2"></i> accglobalsolar@gmail.com</a>
+                    <a href="tel:+2349065604615"><i class="fas fa-phone me-2"></i> 0906 560 4615</a>
+                    <div class="d-flex align-items-center mt-3">
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Company</h4>
+                    <a href="about.html"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                    <a href="services.html"><i class="fas fa-angle-right me-2"></i> Our Services</a>
+                    <a href="gallery.html"><i class="fas fa-angle-right me-2"></i> Gallery</a>
+                    <a href="contact.php"><i class="fas fa-angle-right me-2"></i> Contact Us</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Products</h4>
+                    <a href="solar-panels.html"><i class="fas fa-angle-right me-2"></i> Solar Panels</a>
+                    <a href="solar-batteries.html"><i class="fas fa-angle-right me-2"></i> Solar Batteries</a>
+                    <a href="solar-inverters.html"><i class="fas fa-angle-right me-2"></i> Solar Inverters</a>
+                    <a href="solar-freezers.html"><i class="fas fa-angle-right me-2"></i> Solar Freezers</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item">
+                    <h4 class="text-white mb-4">Business Hours</h4>
+                    <div class="bg-dark rounded p-3 mb-4">
+                        <div class="d-flex justify-content-between text-white mb-2"><span>Mon – Sat</span><span class="text-primary">8:00 AM – 6:00 PM</span></div>
+                        <div class="d-flex justify-content-between text-white"><span>Sunday</span><span class="text-danger">Closed</span></div>
+                    </div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quick%20quote." class="btn btn-success rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright text-body py-4">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 text-center text-md-end mb-md-0">
+                <i class="fas fa-copyright me-2"></i><a class="text-white" href="index.html">A.C C Global Solar Energy</a>, All rights reserved.
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright End -->
+
+<a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="easing.min.js"></script>
+<script src="waypoints.min.js"></script>
+<script src="main.js"></script>
+
+<!-- Gallery JavaScript -->
+<script>
+    // ===== GALLERY FILTER =====
+    function filterGallery(category, btn) {
+        document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const items = document.querySelectorAll('.gallery-item');
+        items.forEach((item, index) => {
+            if (category === 'all' || item.dataset.category === category) {
+                item.style.display = 'block';
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 50);
+            } else {
+                item.classList.remove('visible');
+                setTimeout(() => {
+                    item.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+    
+    // ===== COUNTER ANIMATION =====
+    function animateCounters() {
+        const counters = document.querySelectorAll('.gallery-counter');
+        counters.forEach(counter => {
+            const target = parseInt(counter.dataset.target);
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const update = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(update);
+                } else {
+                    counter.textContent = target + '+';
+                }
+            };
+            update();
+        });
+    }
+    
+    // Run on page load (for phone preview) AND on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        // Small delay so user sees the animation
+        setTimeout(animateCounters, 500);
+    });
+
+    
+    // ===== SCROLL ANIMATION =====
+    const galleryObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        galleryObserver.observe(item);
+    });
+    
+    // ===== FLOATING PARTICLES =====
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'gallery-particle';
+        const size = Math.random() * 20 + 5;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        particle.style.animationDelay = (Math.random() * 5) + 's';
+        document.getElementById('galleryParticles').appendChild(particle);
+        setTimeout(() => particle.remove(), 20000);
+    }
+    setInterval(createParticle, 1000);
+    
+    // ===== LIGHTBOX =====
+    let currentLightboxIndex = 0;
+    const galleryImages = [
+        { src: 'img/gallery/install-1.jpg', title: 'Residential Installation - Lekki, Lagos' },
+        { src: 'img/gallery/install-2.jpg', title: 'Commercial Setup - Victoria Island' },
+        { src: 'img/gallery/install-3.jpg', title: 'Industrial Solar Farm - Ibadan' },
+        { src: 'img/gallery/product-1.jpg', title: '300W Monocrystalline Panels' },
+        { src: 'img/gallery/product-2.jpg', title: '200Ah Deep Cycle Batteries' },
+        { src: 'img/gallery/product-3.jpg', title: '5KVA Pure Sine Wave Inverter' },
+        { src: 'img/gallery/product-4.jpg', title: '150L Solar Freezer' },
+        { src: 'img/gallery/team-1.jpg', title: 'Our Expert Installation Team' },
+        { src: 'img/gallery/team-2.jpg', title: 'On-Site Installation Work' },
+        { src: 'img/gallery/customer-1.jpg', title: 'Mr. Adeyemi - Lekki' },
+        { src: 'img/gallery/customer-2.jpg', title: 'Shop Owner - Alaba Market' },
+        { src: 'img/gallery/customer-3.jpg', title: 'Mrs. Okonkwo - Abuja' }
+    ];
+    
+    function openLightbox(index) {
+        currentLightboxIndex = index;
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightboxImg');
+        img.src = galleryImages[index].src;
+        img.alt = galleryImages[index].title;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox(e) {
+        if (e.target.id === 'lightbox' || e.target.closest('.lightbox-close')) {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    function changeLightbox(direction) {
+        currentLightboxIndex += direction;
+        if (currentLightboxIndex < 0) currentLightboxIndex = galleryImages.length - 1;
+        if (currentLightboxIndex >= galleryImages.length) currentLightboxIndex = 0;
+        
+        const img = document.getElementById('lightboxImg');
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = galleryImages[currentLightboxIndex].src;
+            img.alt = galleryImages[currentLightboxIndex].title;
+            img.style.opacity = '1';
+        }, 200);
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (!document.getElementById('lightbox').classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox({ target: { id: 'lightbox' } });
+        if (e.key === 'ArrowLeft') changeLightbox(-1);
+        if (e.key === 'ArrowRight') changeLightbox(1);
+    });
+    
+    // ===== VIDEO CAROUSEL =====
+    let currentVideoSlide = 0;
+    const totalVideoSlides = 4;
+    let autoPlayInterval;
+    
+    function moveVideoSlide(direction) {
+        pauseAllVideos();
+        currentVideoSlide += direction;
+        if (currentVideoSlide < 0) currentVideoSlide = totalVideoSlides - 1;
+        if (currentVideoSlide >= totalVideoSlides) currentVideoSlide = 0;
+        updateVideoCarousel();
+    }
+    
+    function goToVideoSlide(index) {
+        pauseAllVideos();
+        currentVideoSlide = index;
+        updateVideoCarousel();
+    }
+    
+    function updateVideoCarousel() {
+        const track = document.getElementById('videoTrack');
+        track.style.transform = `translateX(-${currentVideoSlide * 100}%)`;
+        
+        document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentVideoSlide);
+        });
+    }
+    
+    function toggleVideo(videoId, btn) {
+        const video = document.getElementById(videoId);
+        if (video.paused) {
+            pauseAllVideos();
+            video.play();
+            btn.classList.add('playing');
+            clearInterval(autoPlayInterval);
+        } else {
+            video.pause();
+            btn.classList.remove('playing');
+            startAutoPlay();
+        }
+    }
+    
+    function pauseAllVideos() {
+        document.querySelectorAll('video').forEach(video => {
+            video.pause();
+            const btn = video.parentElement.querySelector('.video-play-btn');
+            if (btn) btn.classList.remove('playing');
+        });
+    }
+    
+    function startAutoPlay() {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(() => {
+            moveVideoSlide(1);
+        }, 5000);
+    }
+    
+    startAutoPlay();
+    
+    document.querySelector('.video-carousel-container').addEventListener('mouseenter', () => {
+        clearInterval(autoPlayInterval);
+    });
+    document.querySelector('.video-carousel-container').addEventListener('mouseleave', () => {
+        const anyPlaying = Array.from(document.querySelectorAll('video')).some(v => !v.paused);
+        if (!anyPlaying) startAutoPlay();
+    });
+    
+    // Touch/swipe support
+    let touchStartX = 0;
+    const track = document.getElementById('videoTrack');
+    
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+    
+    track.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) moveVideoSlide(1);
+            else moveVideoSlide(-1);
+        }
+    });
+</script>
+
+</body>
+</html>
