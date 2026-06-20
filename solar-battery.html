@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Solar Batteries - A.C C Global Solar Energy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="solar batteries Nigeria, deep cycle battery, tubular battery, lithium battery, 200Ah battery" name="keywords">
+    <meta content="Premium deep-cycle solar batteries including tubular, lithium-ion, and gel batteries. All capacities available with warranty and nationwide delivery." name="description">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .battery-card { transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .battery-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(196,30,58,0.1), transparent); transition: left 0.5s; }
+        .battery-card:hover::before { left: 100%; }
+        .battery-card:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .capacity-ring { width: 120px; height: 120px; border-radius: 50%; border: 8px solid #C41E3A; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; background: white; position: relative; }
+        .capacity-ring::after { content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 8px solid transparent; border-top-color: #0d6efd; animation: rotate 3s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .battery-type-tab { border: 2px solid #dee2e6; background: white; border-radius: 15px; padding: 15px 30px; cursor: pointer; transition: all 0.3s; font-weight: 600; }
+        .battery-type-tab:hover, .battery-type-tab.active { background: #C41E3A; color: white; border-color: #C41E3A; }
+        .ah-badge { display: inline-block; padding: 5px 15px; border-radius: 20px; background: #e9ecef; color: #495057; font-weight: 600; margin: 3px; transition: all 0.3s; cursor: pointer; }
+        .ah-badge:hover, .ah-badge.active { background: #C41E3A; color: white; }
+        .battery-meter { height: 30px; background: #e9ecef; border-radius: 15px; overflow: hidden; position: relative; }
+        .battery-meter-fill { height: 100%; background: linear-gradient(90deg, #C41E3A, #0d6efd); border-radius: 15px; transition: width 1.5s ease; }
+        .pulse-dot { width: 12px; height: 12px; background: #28a745; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
+        .testimonial-battery { background: #f8f9fa; border-left: 4px solid #C41E3A; padding: 20px; border-radius: 0 15px 15px 0; }
+        .counter-box { text-align: center; padding: 30px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .counter-number { font-size: 3rem; font-weight: 700; color: #C41E3A; }
+    </style>
+</head>
+<body>
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="container-fluid bg-primary px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a href="tel:+2349065604615"><small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>0906 560 4615</small></a>
+                <a href="#"><small class="me-3 text-light"><i class="fa fa-truck me-2"></i>Nationwide Delivery</small></a>
+                <a href="https://wa.me/2349065604615" target="_blank"><small class="text-light"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</small></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-sun me-3"></i>A.C C Global Solar Energy</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-installation.html" class="dropdown-item">Solar Installation</a>
+                        <a href="maintenance-repair.html" class="dropdown-item">Maintenance & Repair</a>
+                        <a href="energy-consultation.html" class="dropdown-item">Energy Consultation</a>
+                        <a href="nationwide-delivery.html" class="dropdown-item">Nationwide Delivery</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Products</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-panels.html" class="dropdown-item">Solar Panels</a>
+                        <a href="solar-batteries.html" class="dropdown-item active">Solar Batteries</a>
+                        <a href="solar-inverters.html" class="dropdown-item">Solar Inverters</a>
+                        <a href="charge-controllers.html" class="dropdown-item">Charge Controllers</a>
+                        <a href="solar-freezers.html" class="dropdown-item">Solar Freezers</a>
+                        <a href="solar-generators.html" class="dropdown-item">Solar Generators</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="other-products.html" class="dropdown-item">Other Products</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quote." class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" target="_blank"><i class="fab fa-whatsapp me-2"></i>Get a Quote</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Solar Batteries</h3>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+                <li class="breadcrumb-item active text-white">Solar Batteries</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center mb-5">
+            <div class="col-lg-6 order-lg-2">
+                <div class="position-relative">
+                    <div class="rounded-4 overflow-hidden" style="border: 3px solid #C41E3A;">
+                        <img src="img/batteries/battery-hero.jpg" class="img-fluid w-100" style="height: 400px; object-fit: cover;" alt="Premium Solar Batteries">
+                    </div>
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-success fs-6 px-3 py-2 rounded-pill"><i class="fa fa-check-circle me-1"></i> In Stock</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <h5 class="section-about-title pe-3">Power Storage</h5>
+                <h1 class="mb-3">Reliable <span class="text-primary">Solar Batteries</span></h1>
+                <div class="mb-3">
+                    <span class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                    <span class="ms-2 text-muted">(4.8/5 from 150+ customers)</span>
+                </div>
+                <p class="mb-4">Store your solar energy for use day and night with our premium deep-cycle batteries. We stock tubular, lithium-ion, and gel batteries from trusted brands — all tested for maximum performance and longevity in Nigerian conditions.</p>
+                
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <div class="bg-light p-3 rounded-4 text-center">
+                            <i class="fa fa-battery-full fa-2x text-primary mb-2"></i>
+                            <h6 class="mb-0">Deep Cycle</h6>
+                            <small class="text-muted">Designed for solar</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="bg-light p-3 rounded-4 text-center">
+                            <i class="fa fa-shield-alt fa-2x text-primary mb-2"></i>
+                            <h6 class="mb-0">2-Year Warranty</h6>
+                            <small class="text-muted">Full replacement</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="mb-3">Select Battery Type:</h5>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <button class="battery-type-tab active" onclick="filterBatteries('all', this)">All Types</button>
+                    <button class="battery-type-tab" onclick="filterBatteries('tubular', this)">Tubular</button>
+                    <button class="battery-type-tab" onclick="filterBatteries('lithium', this)">Lithium-Ion</button>
+                    <button class="battery-type-tab" onclick="filterBatteries('gel', this)">Gel</button>
+                </div>
+                
+                <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20solar%20batteries." target="_blank"><i class="fab fa-whatsapp me-2"></i>Order on WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Our Collection</h5>
+            <h1 class="mb-0">Available Batteries</h1>
+        </div>
+        <div class="row g-4" id="batteryGrid">
+            <div class="col-lg-4 col-md-6 battery-item" data-type="tubular">
+                <div class="battery-card bg-white rounded-4 p-4 h-100">
+                    <div class="capacity-ring">
+                        <div class="text-center">
+                            <span class="fs-3 fw-bold text-primary">100Ah</span>
+                            <small class="d-block text-muted">Capacity</small>
+                        </div>
+                    </div>
+                    <div class="text-center mb-3">
+                        <span class="badge bg-primary">Tubular</span>
+                        <span class="badge bg-success ms-1">In Stock</span>
+                    </div>
+                    <h5 class="text-center mb-2">100Ah Tubular Battery</h5>
+                    <p class="text-muted small text-center mb-3">Perfect for small solar setups. Powers lights, fans, and TV for 6-8 hours.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Voltage</span><span class="fw-bold">12V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Cycles</span><span class="fw-bold">1500+</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">18 Months</span></div>
+                        <div class="battery-meter mt-2"><div class="battery-meter-fill" style="width: 40%;"></div></div>
+                        <small class="text-muted">Backup: 6-8 hours</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦55,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20100Ah%20tubular%20battery." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 battery-item" data-type="tubular">
+                <div class="battery-card bg-white rounded-4 p-4 h-100">
+                    <div class="capacity-ring">
+                        <div class="text-center">
+                            <span class="fs-3 fw-bold text-primary">200Ah</span>
+                            <small class="d-block text-muted">Capacity</small>
+                        </div>
+                    </div>
+                    <div class="text-center mb-3">
+                        <span class="badge bg-primary">Tubular</span>
+                        <span class="badge bg-success ms-1">Best Seller</span>
+                    </div>
+                    <h5 class="text-center mb-2">200Ah Tubular Battery</h5>
+                    <p class="text-muted small text-center mb-3">Our most popular battery. Powers full home including fridge and AC for 8-12 hours.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Voltage</span><span class="fw-bold">12V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Cycles</span><span class="fw-bold">1500+</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                        <div class="battery-meter mt-2"><div class="battery-meter-fill" style="width: 70%;"></div></div>
+                        <small class="text-muted">Backup: 8-12 hours</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦95,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20200Ah%20tubular%20battery." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 battery-item" data-type="lithium">
+                <div class="battery-card bg-white rounded-4 p-4 h-100">
+                    <div class="capacity-ring">
+                        <div class="text-center">
+                            <span class="fs-3 fw-bold text-primary">100Ah</span>
+                            <small class="d-block text-muted">Capacity</small>
+                        </div>
+                    </div>
+                    <div class="text-center mb-3">
+                        <span class="badge bg-info">Lithium</span>
+                        <span class="badge bg-warning text-dark ms-1">Premium</span>
+                    </div>
+                    <h5 class="text-center mb-2">100Ah Lithium-Ion</h5>
+                    <p class="text-muted small text-center mb-3">Lightweight, fast charging, 5x longer lifespan than tubular. Zero maintenance.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Voltage</span><span class="fw-bold">12V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Cycles</span><span class="fw-bold">5000+</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">5 Years</span></div>
+                        <div class="battery-meter mt-2"><div class="battery-meter-fill" style="width: 60%;"></div></div>
+                        <small class="text-muted">Backup: 10-14 hours</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦180,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20100Ah%20lithium%20battery." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 battery-item" data-type="lithium">
+                <div class="battery-card bg-white rounded-4 p-4 h-100">
+                    <div class="capacity-ring">
+                        <div class="text-center">
+                            <span class="fs-3 fw-bold text-primary">200Ah</span>
+                            <small class="d-block text-muted">Capacity</small>
+                        </div>
+                    </div>
+                    <div class="text-center mb-3">
+                        <span class="badge bg-info">Lithium</span>
+                        <span class="badge bg-danger ms-1">Top Tier</span>
+                    </div>
+                    <h5 class="text-center mb-2">200Ah Lithium-Ion</h5>
+                    <p class="text-muted small text-center mb-3">Ultimate power storage. Powers entire home including AC for 12-18 hours.</p>
+                   <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Voltage</span><span class="fw-bold">12V/24V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Cycles</span><span class="fw-bold">5000+</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">5 Years</span></div>
+                        <div class="battery-meter mt-2"><div class="battery-meter-fill" style="width: 90%;"></div></div>
+                        <small class="text-muted">Backup: 12-18 hours</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦320,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20200Ah%20lithium%20battery." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 battery-item" data-type="gel">
+                <div class="battery-card bg-white rounded-4 p-4 h-100">
+                    <div class="capacity-ring">
+                        <div class="text-center">
+                            <span class="fs-3 fw-bold text-primary">150Ah</span>
+                            <small class="d-block text-muted">Capacity</small>
+                        </div>
+                    </div>
+                    <div class="text-center mb-3">
+                        <span class="badge bg-secondary">Gel</span>
+                        <span class="badge bg-success ms-1">Reliable</span>
+                    </div>
+                    <h5 class="text-center mb-2">150Ah Gel Battery</h5>
+                    <p class="text-muted small text-center mb-3">Sealed maintenance-free design. Safe for indoor use. Good for moderate loads.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Voltage</span><span class="fw-bold">12V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Cycles</span><span class="fw-bold">800+</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">12 Months</span></div>
+                        <div class="battery-meter mt-2"><div class="battery-meter-fill" style="width: 55%;"></div></div>
+                        <small class="text-muted">Backup: 7-10 hours</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦72,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20150Ah%20gel%20battery." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 battery-item" data-type="tubular">
+                <div class="battery-card bg-white rounded-4 p-4 h-100">
+                    <div class="capacity-ring">
+                        <div class="text-center">
+                            <span class="fs-3 fw-bold text-primary">220Ah</span>
+                            <small class="d-block text-muted">Capacity</small>
+                        </div>
+                    </div>
+                    <div class="text-center mb-3">
+                        <span class="badge bg-primary">Tubular</span>
+                        <span class="badge bg-dark ms-1">Heavy Duty</span>
+                    </div>
+                    <h5 class="text-center mb-2">220Ah Tubular Battery</h5>
+                    <p class="text-muted small text-center mb-3">Maximum capacity tubular battery. For large homes and commercial use.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Voltage</span><span class="fw-bold">12V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Cycles</span><span class="fw-bold">1500+</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                        <div class="battery-meter mt-2"><div class="battery-meter-fill" style="width: 80%;"></div></div>
+                        <small class="text-muted">Backup: 10-14 hours</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦110,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20220Ah%20tubular%20battery." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-box">
+                    <div class="counter-number" data-target="500">0</div>
+                    <p class="mb-0 text-muted">Batteries Sold</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-box">
+                    <div class="counter-number" data-target="98">0</div>
+                    <p class="mb-0 text-muted">% Satisfaction</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-box">
+                    <div class="counter-number" data-target="24">0</div>
+                    <p class="mb-0 text-muted">Hr Support</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-box">
+                    <div class="counter-number" data-target="36">0</div>
+                    <p class="mb-0 text-muted">States Delivered</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mx-auto text-center" style="max-width: 900px;">
+            <h5 class="section-title px-3">Need Help?</h5>
+            <h1 class="mb-3">Not Sure Which Battery You Need?</h1>
+            <p class="mb-4">Battery choice depends on your inverter size, daily usage, and backup needs. Our experts will calculate the perfect battery for your setup — free consultation.</p>
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20need%20help%20choosing%20a%20battery." target="_blank"><i class="fab fa-whatsapp me-2"></i>Get Free Advice</a>
+            <a class="btn btn-outline-primary rounded-pill py-3 px-5 ms-3" href="energy-consultation.html"><i class="fa fa-clipboard-check me-2"></i>Book Consultation</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid footer py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Get In Touch</h4>
+                    <a href="https://maps.google.com/?q=Alaba+International+Market+Ojo+Lagos" target="_blank"><i class="fas fa-home me-2"></i> Shop F1485B, Alaba International Market, Ojo, Lagos</a>
+                    <a href="mailto:accglobalsolar@gmail.com"><i class="fas fa-envelope me-2"></i> accglobalsolar@gmail.com</a>
+                    <a href="tel:+2349065604615"><i class="fas fa-phone me-2"></i> 0906 560 4615</a>
+                    <div class="d-flex align-items-center mt-3">
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Services</h4>
+                    <a href="solar-installation.html"><i class="fas fa-angle-right me-2"></i> Solar Installation</a>
+                    <a href="maintenance-repair.html"><i class="fas fa-angle-right me-2"></i> Maintenance & Repair</a>
+                    <a href="energy-consultation.html"><i class="fas fa-angle-right me-2"></i> Energy Consultation</a>
+                    <a href="nationwide-delivery.html"><i class="fas fa-angle-right me-2"></i> Nationwide Delivery</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Products</h4>
+                    <a href="solar-panels.html"><i class="fas fa-angle-right me-2"></i> Solar Panels</a>
+                    <a href="solar-batteries.html"><i class="fas fa-angle-right me-2"></i> Solar Batteries</a>
+                    <a href="solar-inverters.html"><i class="fas fa-angle-right me-2"></i> Solar Inverters</a>
+                    <a href="charge-controllers.html"><i class="fas fa-angle-right me-2"></i> Charge Controllers</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item">
+                    <h4 class="text-white mb-4">Business Hours</h4>
+                    <div class="bg-dark rounded p-3 mb-4">
+                        <div class="d-flex justify-content-between text-white mb-2"><span>Mon – Sat</span><span class="text-primary">8:00 AM – 6:00 PM</span></div>
+                        <div class="d-flex justify-content-between text-white"><span>Sunday</span><span class="text-danger">Closed</span></div>
+                    </div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quick%20quote." class="btn btn-success rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid copyright text-body py-4">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 text-center text-md-end mb-md-0">
+                <i class="fas fa-copyright me-2"></i><a class="text-white" href="index.html">A.C C Global Solar Energy</a>, All rights reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-start">Designed with care for a trusted Lagos business.</div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    // Battery type filter
+    function filterBatteries(type, btn) {
+        document.querySelectorAll('.battery-type-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        document.querySelectorAll('.battery-item').forEach(item => {
+            if (type === 'all' || item.dataset.type === type) {
+                item.style.display = 'block';
+                setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 50);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.8)';
+                setTimeout(() => { item.style.display = 'none'; }, 300);
+            }
+        });
+    }
+
+    // Animated counters
+    const counters = document.querySelectorAll('.counter-number');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.dataset.target);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + (target === 98 ? '%' : target === 24 ? '' : '+');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + (target === 98 ? '%' : '');
+                    }
+                }, 30);
+                counterObserver.unobserve(counter);
+            }
+        });
+    });
+    counters.forEach(c => counterObserver.observe(c));
+
+    // Battery card entrance animation
+    document.querySelectorAll('.battery-item').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.9)';
+        card.style.transition = 'all 0.5s ease';
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+        }, index * 100);
+    });
+
+    // Battery meter animation on scroll
+    const meterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fill = entry.target;
+                const width = fill.style.width;
+                fill.style.width = '0%';
+                setTimeout(() => { fill.style.width = width; }, 200);
+                meterObserver.unobserve(fill);
+            }
+        });
+    });
+    document.querySelectorAll('.battery-meter-fill').forEach(m => meterObserver.observe(m));
+</script>
+</body>
+</html>'''
+

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Charge Controllers - A.C C Global Solar Energy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="MPPT charge controller, PWM charge controller, solar charge controller Nigeria, 30A controller, 60A controller" name="keywords">
+    <meta content="MPPT and PWM solar charge controllers from 10A to 100A. Maximize charging efficiency and protect your batteries. Nationwide delivery available." name="description">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .controller-card { background: white; border-radius: 20px; border: 2px solid #e9ecef; transition: all 0.4s ease; position: relative; }
+        .controller-card:hover { border-color: #C41E3A; transform: rotate(1deg) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .amp-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #C41E3A, #0d6efd); color: white; padding: 8px 25px; border-radius: 25px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(196,30,58,0.3); z-index: 10; }
+        .efficiency-bar { height: 8px; background: #e9ecef; border-radius: 4px; overflow: hidden; }
+        .efficiency-fill { height: 100%; border-radius: 4px; transition: width 1.5s ease; }
+        .mppt-fill { background: linear-gradient(90deg, #28a745, #20c997); }
+        .pwm-fill { background: linear-gradient(90deg, #fd7e14, #ffc107); }
+        .controller-type-btn { border: 3px solid; border-radius: 15px; padding: 15px 30px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-align: center; }
+        .mppt-btn { border-color: #28a745; color: #28a745; background: white; }
+        .mppt-btn:hover, .mppt-btn.active { background: #28a745; color: white; }
+        .pwm-btn { border-color: #fd7e14; color: #fd7e14; background: white; }
+        .pwm-btn:hover, .pwm-btn.active { background: #fd7e14; color: white; }
+        .comparison-table th { background: #C41E3A; color: white; }
+        .comparison-table td { vertical-align: middle; }
+        .check-green { color: #28a745; }
+        .check-orange { color: #fd7e14; }
+        .tech-spec-row { padding: 15px; border-bottom: 1px solid #e9ecef; transition: all 0.3s; }
+        .tech-spec-row:hover { background: #f8f9fa; padding-left: 25px; }
+        .circuit-animation { width: 100%; height: 200px; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 20px; position: relative; overflow: hidden; }
+        .circuit-dot { position: absolute; width: 10px; height: 10px; background: #C41E3A; border-radius: 50%; animation: circuitMove 3s linear infinite; }
+        @keyframes circuitMove { 0% { left: 10%; top: 50%; } 25% { left: 50%; top: 20%; } 50% { left: 90%; top: 50%; } 75% { left: 50%; top: 80%; } 100% { left: 10%; top: 50%; } }
+    </style>
+</head>
+<body>
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="container-fluid bg-primary px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a href="tel:+2349065604615"><small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>0906 560 4615</small></a>
+                <a href="#"><small class="me-3 text-light"><i class="fa fa-truck me-2"></i>Nationwide Delivery</small></a>
+                <a href="https://wa.me/2349065604615" target="_blank"><small class="text-light"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</small></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-sun me-3"></i>A.C C Global Solar Energy</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-installation.html" class="dropdown-item">Solar Installation</a>
+                        <a href="maintenance-repair.html" class="dropdown-item">Maintenance & Repair</a>
+                        <a href="energy-consultation.html" class="dropdown-item">Energy Consultation</a>
+                        <a href="nationwide-delivery.html" class="dropdown-item">Nationwide Delivery</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Products</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-panels.html" class="dropdown-item">Solar Panels</a>
+                        <a href="solar-batteries.html" class="dropdown-item">Solar Batteries</a>
+                        <a href="solar-inverters.html" class="dropdown-item">Solar Inverters</a>
+                        <a href="charge-controllers.html" class="dropdown-item active">Charge Controllers</a>
+                        <a href="solar-freezers.html" class="dropdown-item">Solar Freezers</a>
+                        <a href="solar-generators.html" class="dropdown-item">Solar Generators</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="other-products.html" class="dropdown-item">Other Products</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quote." class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" target="_blank"><i class="fab fa-whatsapp me-2"></i>Get a Quote</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Charge Controllers</h3>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+                <li class="breadcrumb-item active text-white">Charge Controllers</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center mb-5">
+            <div class="col-lg-6 order-lg-2">
+                <div class="circuit-animation d-flex align-items-center justify-content-center">
+                    <div class="circuit-dot"></div>
+                    <div class="text-center text-white px-4">
+                        <i class="fa fa-microchip fa-4x mb-3" style="color: #C41E3A;"></i>
+                        <h4 class="mb-2">Smart Charging</h4>
+                        <p class="mb-0 small">MPPT technology extracts maximum power from your panels</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <h5 class="section-about-title pe-3">Battery Protection</h5>
+                <h1 class="mb-3">MPPT & PWM <span class="text-primary">Charge Controllers</span></h1>
+                <div class="mb-3">
+                    <span class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <span class="ms-2 text-muted">(5.0/5 from 120+ customers)</span>
+                </div>
+                <p class="mb-4">Protect your battery investment with our smart charge controllers. MPPT controllers extract up to 30% more power from your panels compared to PWM. All controllers feature overcharge protection, reverse polarity protection, and LCD displays.</p>
+                
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-4">
+                            <i class="fa fa-shield-alt fa-2x text-success me-3"></i>
+                            <div><h6 class="mb-0">Overcharge</h6><small class="text-muted">Protection</small></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-4">
+                            <i class="fa fa-temperature-low fa-2x text-primary me-3"></i>
+                            <div><h6 class="mb-0">Temp Sensor</h6><small class="text-muted">Auto adjust</small></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="mb-3">Choose Type:</h5>
+                <div class="d-flex flex-wrap gap-3 mb-4">
+                    <button class="controller-type-btn mppt-btn active" onclick="filterControllers('all', this)">All Controllers</button>
+                    <button class="controller-type-btn mppt-btn" onclick="filterControllers('mppt', this)">MPPT</button>
+                    <button class="controller-type-btn pwm-btn" onclick="filterControllers('pwm', this)">PWM</button>
+                </div>
+                
+                <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20a%20charge%20controller." target="_blank"><i class="fab fa-whatsapp me-2"></i>Order on WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Our Collection</h5>
+            <h1 class="mb-0">Available Charge Controllers</h1>
+        </div>
+        <div class="row g-4" id="controllerGrid">
+            <div class="col-lg-4 col-md-6 controller-item" data-type="pwm">
+                <div class="controller-card p-4 pt-5 h-100">
+                    <div class="amp-badge">10A</div>
+                    <div class="text-center mb-3 mt-3">
+                        <span class="badge bg-warning text-dark">PWM</span>
+                        <span class="badge bg-success ms-1">Basic</span>
+                    </div>
+                    <h5 class="text-center mb-2">10A PWM Controller</h5>
+                    <p class="text-muted small text-center mb-3">Entry-level controller for small 12V systems. Simple and reliable.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Max PV Input</span><span class="fw-bold">130W (12V)</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Battery</span><span class="fw-bold">12V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">75-80%</span></div>
+                        <div class="d-flex justify-content-between small mb-2"><span>Protection</span><span class="fw-bold">OVP, OCP</span></div>
+                        <div class="efficiency-bar"><div class="efficiency-fill pwm-fill" style="width: 75%;"></div></div>
+                        <small class="text-muted">Charging Efficiency</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦12,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%2010A%20PWM%20controller." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 controller-item" data-type="pwm">
+                <div class="controller-card p-4 pt-5 h-100">
+                    <div class="amp-badge">20A</div>
+                    <div class="text-center mb-3 mt-3">
+                        <span class="badge bg-warning text-dark">PWM</span>
+                        <span class="badge bg-primary ms-1">Popular</span>
+                    </div>
+                    <h5 class="text-center mb-2">20A PWM Controller</h5>
+                    <p class="text-muted small text-center mb-3">Most popular PWM choice. Handles up to 260W of solar panels.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Max PV Input</span><span class="fw-bold">260W (12V)</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Battery</span><span class="fw-bold">12V/24V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">75-80%</span></div>
+                        <div class="d-flex justify-content-between small mb-2"><span>Protection</span><span class="fw-bold">OVP, OCP, SCP</span></div>
+                        <div class="efficiency-bar"><div class="efficiency-fill pwm-fill" style="width: 78%;"></div></div>
+                        <small class="text-muted">Charging Efficiency</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦18,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%2020A%20PWM%20controller." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 controller-item" data-type="mppt">
+                <div class="controller-card p-4 pt-5 h-100">
+                    <div class="amp-badge">30A</div>
+                    <div class="text-center mb-3 mt-3">
+                        <span class="badge bg-success">MPPT</span>
+                        <span class="badge bg-info ms-1">Smart</span>
+                    </div>
+                    <h5 class="text-center mb-2">30A MPPT Controller</h5>
+                    <p class="text-muted small text-center mb-3">Up to 30% more power extraction. LCD display with USB ports.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Max PV Input</span><span class="fw-bold">390W (12V) / 780W (24V)</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Battery</span><span class="fw-bold">12V/24V Auto</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">98%</span></div>
+                        <div class="d-flex justify-content-between small mb-2"><span>Protection</span><span class="fw-bold">Full Protection</span></div>
+                        <div class="efficiency-bar"><div class="efficiency-fill mppt-fill" style="width: 98%;"></div></div>
+                        <small class="text-muted">Charging Efficiency</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦45,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%2030A%20MPPT%20controller." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 controller-item" data-type="mppt">
+                <div class="controller-card p-4 pt-5 h-100">
+                    <div class="amp-badge">40A</div>
+                    <div class="text-center mb-3 mt-3">
+                        <span class="badge bg-success">MPPT</span>
+                        <span class="badge bg-primary ms-1">Best Value</span>
+                    </div>
+                    <h5 class="text-center mb-2">40A MPPT Controller</h5>
+                    <p class="text-muted small text-center mb-3">Perfect for medium systems. Bluetooth monitoring app included.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Max PV Input</span><span class="fw-bold">520W (12V) / 1040W (24V)</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Battery</span><span class="fw-bold">12V/24V Auto</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">98.5%</span></div>
+                        <div class="d-flex justify-content-between small mb-2"><span>Protection</span><span class="fw-bold">Full + Temp Comp</span></div>
+                        <div class="efficiency-bar"><div class="efficiency-fill mppt-fill" style="width: 98%;"></div></div>
+                        <small class="text-muted">Charging Efficiency</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦65,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%2040A%20MPPT%20controller." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 controller-item" data-type="mppt">
+                <div class="controller-card p-4 pt-5 h-100">
+                    <div class="amp-badge">60A</div>
+                    <div class="text-center mb-3 mt-3">
+                        <span class="badge bg-success">MPPT</span>
+                        <span class="badge bg-danger ms-1">Pro</span>
+                    </div>
+                    <h5 class="text-center mb-2">60A MPPT Controller</h5>
+                    <p class="text-muted small text-center mb-3">Professional-grade for large systems. RS485 communication port.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Max PV Input</span><span class="fw-bold">1560W (24V) / 3120W (48V)</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Battery</span><span class="fw-bold">12V/24V/48V Auto</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">99%</span></div>
+                        <div class="d-flex justify-content-between small mb-2"><span>Protection</span><span class="fw-bold">Industrial Grade</span></div>
+                        <div class="efficiency-bar"><div class="efficiency-fill mppt-fill" style="width: 99%;"></div></div>
+                        <small class="text-muted">Charging Efficiency</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦95,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%2060A%20MPPT%20controller." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 controller-item" data-type="mppt">
+                <div class="controller-card p-4 pt-5 h-100">
+                    <div class="amp-badge">100A</div>
+                    <div class="text-center mb-3 mt-3">
+                        <span class="badge bg-success">MPPT</span>
+                        <span class="badge bg-dark ms-1">Heavy Duty</span>
+                    </div>
+                    <h5 class="text-center mb-2">100A MPPT Controller</h5>
+                    <p class="text-muted small text-center mb-3">Maximum capacity for commercial installations. Touch screen display.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Max PV Input</span><span class="fw-bold">5200W (48V)</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Battery</span><span class="fw-bold">24V/48V Auto</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">99.5%</span></div>
+                        <div class="d-flex justify-content-between small mb-2"><span>Protection</span><span class="fw-bold">Full Industrial</span></div>
+                        <div class="efficiency-bar"><div class="efficiency-fill mppt-fill" style="width: 99%;"></div></div>
+                        <small class="text-muted">Charging Efficiency</small>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦155,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20100A%20MPPT%20controller." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Compare</h5>
+            <h1 class="mb-0">MPPT vs PWM: Which One?</h1>
+        </div>
+        <div class="table-responsive">
+            <table class="table comparison-table rounded-4 overflow-hidden">
+                <thead>
+                    <tr>
+                        <th class="py-3">Feature</th>
+                        <th class="py-3 text-center"><i class="fa fa-bolt me-2"></i>MPPT</th>
+                        <th class="py-3 text-center"><i class="fa fa-adjust me-2"></i>PWM</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <tr><td class="py-3 fw-bold">Efficiency</td><td class="py-3 text-center check-green"><i class="fa fa-check-circle me-1"></i> 95-99%</td><td class="py-3 text-center check-orange"><i class="fa fa-check-circle me-1"></i> 75-80%</td></tr>
+                    <tr><td class="py-3 fw-bold">Power Extraction</td><td class="py-3 text-center check-green"><i class="fa fa-check-circle me-1"></i> Up to 30% more</td><td class="py-3 text-center check-orange"><i class="fa fa-minus-circle me-1"></i> Standard</td></tr>
+                    <tr><td class="py-3 fw-bold">Voltage Flexibility</td><td class="py-3 text-center check-green"><i class="fa fa-check-circle me-1"></i> High PV voltage</td><td class="py-3 text-center check-orange"><i class="fa fa-minus-circle me-1"></i> Must match battery</td></tr>
+                    <tr><td class="py-3 fw-bold">Best For</td><td class="py-3 text-center">Large systems, cold climates</td><td class="py-3 text-center">Small systems, warm climates</td></tr>
+                    <tr><td class="py-3 fw-bold">Price</td><td class="py-3 text-center">Higher initial cost</td><td class="py-3 text-center">Budget-friendly</td></tr>
+                    <tr><td class="py-3 fw-bold">Long-term Savings</td><td class="py-3 text-center check-green"><i class="fa fa-check-circle me-1"></i> Significant</td><td class="py-3 text-center check-orange"><i class="fa fa-minus-circle me-1"></i> Limited</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center mt-4">
+            <p class="text-muted">Not sure which to choose? <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20need%20help%20choosing%20between%20MPPT%20and%20PWM." target="_blank">Chat with us on WhatsApp</a> for free advice.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center" style="max-width: 900px;">
+            <h5 class="section-title px-3">Need Help?</h5>
+            <h1 class="mb-3">Find the Right Controller Size</h1>
+            <p class="mb-4">Controller size depends on your total solar panel wattage and battery voltage. Our experts will match the perfect controller to your system.</p>
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20need%20help%20choosing%20a%20charge%20controller." target="_blank"><i class="fab fa-whatsapp me-2"></i>Get Free Advice</a>
+            <a class="btn btn-outline-primary rounded-pill py-3 px-5 ms-3" href="energy-consultation.html"><i class="fa fa-clipboard-check me-2"></i>Book Consultation</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid footer py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Get In Touch</h4>
+                    <a href="https://maps.google.com/?q=Alaba+International+Market+Ojo+Lagos" target="_blank"><i class="fas fa-home me-2"></i> Shop F1485B, Alaba International Market, Ojo, Lagos</a>
+                    <a href="mailto:accglobalsolar@gmail.com"><i class="fas fa-envelope me-2"></i> accglobalsolar@gmail.com</a>
+                    <a href="tel:+2349065604615"><i class="fas fa-phone me-2"></i> 0906 560 4615</a>
+                    <div class="d-flex align-items-center mt-3">
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Services</h4>
+                    <a href="solar-installation.html"><i class="fas fa-angle-right me-2"></i> Solar Installation</a>
+                    <a href="maintenance-repair.html"><i class="fas fa-angle-right me-2"></i> Maintenance & Repair</a>
+                    <a href="energy-consultation.html"><i class="fas fa-angle-right me-2"></i> Energy Consultation</a>
+                    <a href="nationwide-delivery.html"><i class="fas fa-angle-right me-2"></i> Nationwide Delivery</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Products</h4>
+                    <a href="solar-panels.html"><i class="fas fa-angle-right me-2"></i> Solar Panels</a>
+                    <a href="solar-batteries.html"><i class="fas fa-angle-right me-2"></i> Solar Batteries</a>
+                    <a href="solar-inverters.html"><i class="fas fa-angle-right me-2"></i> Solar Inverters</a>
+                    <a href="charge-controllers.html"><i class="fas fa-angle-right me-2"></i> Charge Controllers</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item">
+                    <h4 class="text-white mb-4">Business Hours</h4>
+                    <div class="bg-dark rounded p-3 mb-4">
+                        <div class="d-flex justify-content-between text-white mb-2"><span>Mon – Sat</span><span class="text-primary">8:00 AM – 6:00 PM</span></div>
+                        <div class="d-flex justify-content-between text-white"><span>Sunday</span><span class="text-danger">Closed</span></div>
+                    </div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quick%20quote." class="btn btn-success rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid copyright text-body py-4">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 text-center text-md-end mb-md-0">
+                <i class="fas fa-copyright me-2"></i><a class="text-white" href="index.html">A.C C Global Solar Energy</a>, All rights reserved.
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="easing.min.js"></script>
+<script src="waypoints.min.js"></script>
+<script src="main.js"></script>
+<script>
+    // Controller type filter
+    function filterControllers(type, btn) {
+        document.querySelectorAll('.controller-type-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        document.querySelectorAll('.controller-item').forEach(item => {
+            if (type === 'all' || item.dataset.type === type) {
+                item.style.display = 'block';
+                setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 50);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.9)';
+                setTimeout(() => { item.style.display = 'none'; }, 300);
+            }
+        });
+    }
+
+    // Efficiency bar animation
+    const effObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fill = entry.target;
+                const targetWidth = fill.style.width;
+                fill.style.width = '0%';
+                setTimeout(() => { fill.style.width = targetWidth; }, 300);
+                effObserver.unobserve(fill);
+            }
+        });
+    });
+    document.querySelectorAll('.efficiency-fill').forEach(f => effObserver.observe(f));
+
+    // Card entrance animation
+    document.querySelectorAll('.controller-item').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.9)';
+        card.style.transition = 'all 0.5s ease';
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+        }, index * 100);
+    });
+</script>
+</body>
+</html>

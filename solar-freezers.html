@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Solar Freezers - A.C C Global Solar Energy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="solar freezer Nigeria, solar powered fridge, DC freezer, energy efficient freezer, 12V freezer" name="keywords">
+    <meta content="Energy-efficient solar-powered freezers and refrigerators. No fuel cost, zero noise, pure solar power. Available in various sizes with nationwide delivery." name="description">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .freezer-card { background: white; border-radius: 25px; overflow: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
+        .freezer-card:hover { transform: translateY(-15px) rotateX(5deg); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+        .freezer-img-container { height: 280px; overflow: hidden; position: relative; }
+        .freezer-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .freezer-card:hover .freezer-img { transform: scale(1.1) rotate(-2deg); }
+        .temp-badge { position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #00b4db, #0083b0); color: white; padding: 8px 18px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 5px 15px rgba(0,180,219,0.3); }
+        .eco-badge { display: inline-flex; align-items: center; gap: 5px; background: #d4edda; color: #155724; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .size-selector { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+        .size-btn { border: 2px solid #dee2e6; background: white; border-radius: 15px; padding: 10px 25px; cursor: pointer; transition: all 0.3s; font-weight: 600; }
+        .size-btn:hover, .size-btn.active { background: #00b4db; color: white; border-color: #00b4db; }
+        .snowflake-float { position: fixed; pointer-events: none; color: #00b4db; opacity: 0.6; animation: snowfall linear infinite; z-index: 9999; }
+        @keyframes snowfall { from { transform: translateY(-100px) rotate(0deg); } to { transform: translateY(100vh) rotate(360deg); } }
+        .savings-calculator { background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 25px; padding: 40px; color: white; position: relative; overflow: hidden; }
+        .savings-calculator::before { content: '❄'; position: absolute; font-size: 200px; opacity: 0.05; top: -50px; right: -50px; }
+        .slider-container { margin: 20px 0; }
+        .range-slider { -webkit-appearance: none; width: 100%; height: 10px; border-radius: 5px; background: rgba(255,255,255,0.2); outline: none; }
+        .range-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 25px; height: 25px; border-radius: 50%; background: #00b4db; cursor: pointer; box-shadow: 0 0 10px rgba(0,180,219,0.5); }
+        .savings-amount { font-size: 3rem; font-weight: 700; color: #00b4db; }
+        .feature-freezer { text-align: center; padding: 30px 20px; background: white; border-radius: 20px; transition: all 0.3s; border: 2px solid transparent; }
+        .feature-freezer:hover { border-color: #00b4db; transform: translateY(-5px); }
+        .feature-icon-freezer { width: 70px; height: 70px; background: linear-gradient(135deg, #00b4db, #0083b0); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; margin: 0 auto 15px; }
+    </style>
+</head>
+<body>
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="container-fluid bg-primary px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a href="tel:+2349065604615"><small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>0906 560 4615</small></a>
+                <a href="#"><small class="me-3 text-light"><i class="fa fa-truck me-2"></i>Nationwide Delivery</small></a>
+                <a href="https://wa.me/2349065604615" target="_blank"><small class="text-light"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</small></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-sun me-3"></i>A.C C Global Solar Energy</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-installation.html" class="dropdown-item">Solar Installation</a>
+                        <a href="maintenance-repair.html" class="dropdown-item">Maintenance & Repair</a>
+                        <a href="energy-consultation.html" class="dropdown-item">Energy Consultation</a>
+                        <a href="nationwide-delivery.html" class="dropdown-item">Nationwide Delivery</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Products</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-panels.html" class="dropdown-item">Solar Panels</a>
+                        <a href="solar-batteries.html" class="dropdown-item">Solar Batteries</a>
+                        <a href="solar-inverters.html" class="dropdown-item">Solar Inverters</a>
+                        <a href="charge-controllers.html" class="dropdown-item">Charge Controllers</a>
+                        <a href="solar-freezers.html" class="dropdown-item active">Solar Freezers</a>
+                        <a href="solar-generators.html" class="dropdown-item">Solar Generators</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="other-products.html" class="dropdown-item">Other Products</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quote." class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" target="_blank"><i class="fab fa-whatsapp me-2"></i>Get a Quote</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Solar Freezers</h3>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+                <li class="breadcrumb-item active text-white">Solar Freezers</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center mb-5">
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <div class="rounded-4 overflow-hidden" style="border: 3px solid #00b4db;">
+                        <img src="img/freezers/freezer-hero.jpg" class="img-fluid w-100" style="height: 400px; object-fit: cover;" alt="Solar Powered Freezer">
+                    </div>
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-info fs-6 px-3 py-2 rounded-pill"><i class="fa fa-snowflake me-1"></i> Zero Fuel</span>
+                    </div>
+                    <div class="position-absolute bottom-0 end-0 m-3">
+                        <span class="badge bg-success fs-6 px-3 py-2 rounded-pill"><i class="fa fa-leaf me-1"></i> Eco Friendly</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h5 class="section-about-title pe-3">Cool Storage</h5>
+                <h1 class="mb-3">Solar <span style="color: #00b4db;">Freezers & Fridges</span></h1>
+                <div class="mb-3">
+                    <span class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <span class="ms-2 text-muted">(5.0/5 from 90+ customers)</span>
+                </div>
+                <p class="mb-4">Keep your food fresh and drinks cold without electricity bills or fuel costs. Our solar freezers run entirely on solar power — no generator needed, no noise, no pollution. Perfect for homes, shops, farms, and remote locations.</p>
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <div class="feature-freezer">
+                            <div class="feature-icon-freezer"><i class="fa fa-snowflake"></i></div>
+                            <h6 class="mb-1">-18°C Freezing</h6>
+                            <small class="text-muted">Deep freeze capability</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="feature-freezer">
+                            <div class="feature-icon-freezer"><i class="fa fa-volume-mute"></i></div>
+                            <h6 class="mb-1">Whisper Quiet</h6>
+                            <small class="text-muted">No noise pollution</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="feature-freezer">
+                            <div class="feature-icon-freezer"><i class="fa fa-bolt"></i></div>
+                            <h6 class="mb-1">Low Power</h6>
+                            <small class="text-muted">60W-150W only</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="feature-freezer">
+                            <div class="feature-icon-freezer"><i class="fa fa-sun"></i></div>
+                            <h6 class="mb-1">Day & Night</h6>
+                            <small class="text-muted">Battery backup included</small>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20a%20solar%20freezer." target="_blank"><i class="fab fa-whatsapp me-2"></i>Order on WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Our Collection</h5>
+            <h1 class="mb-0">Available Solar Freezers</h1>
+        </div>
+        <div class="size-selector mb-4">
+            <button class="size-btn active" onclick="filterFreezers('all', this)">All Sizes</button>
+            <button class="size-btn" onclick="filterFreezers('small', this)">Small (50-100L)</button>
+            <button class="size-btn" onclick="filterFreezers('medium', this)">Medium (150-200L)</button>
+            <button class="size-btn" onclick="filterFreezers('large', this)">Large (250L+)</button>
+        </div>
+        <div class="row g-4" id="freezerGrid">
+            <div class="col-lg-4 col-md-6 freezer-item" data-size="small">
+                <div class="freezer-card">
+                    <div class="freezer-img-container">
+                        <img src="img/freezers/freezer-50l.jpg" class="freezer-img" alt="50L Solar Freezer">
+                        <div class="temp-badge">-18°C</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-2">
+                            <span class="eco-badge"><i class="fa fa-leaf"></i> A+ Energy</span>
+                            <span class="badge bg-info ms-1">50L</span>
+                        </div>
+                        <h5 class="mb-2">50L Solar Chest Freezer</h5>
+                        <p class="text-muted small mb-3">Compact freezer for small shops and homes. Perfect for ice blocks and frozen foods.</p>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between small mb-1"><span>Power</span><span class="fw-bold">60W</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Temp Range</span><span class="fw-bold">-18°C to +10°C</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Insulation</span><span class="fw-bold">72hr Cold Retention</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                        </div>
+                        <div class="text-center mb-3"><h4 class="mb-0" style="color: #00b4db;">₦85,000</h4></div>
+                        <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%2050L%20solar%20freezer." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 freezer-item" data-size="small">
+                <div class="freezer-card">
+                    <div class="freezer-img-container">
+                        <img src="img/freezers/freezer-100l.jpg" class="freezer-img" alt="100L Solar Freezer">
+                        <div class="temp-badge">-18°C</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-2">
+                            <span class="eco-badge"><i class="fa fa-leaf"></i> A+ Energy</span>
+                            <span class="badge bg-primary ms-1">Popular</span>
+                        </div>
+                        <h5 class="mb-2">100L Solar Chest Freezer</h5>
+                        <p class="text-muted small mb-3">Most popular size for homes. Stores a week of frozen food for a family.</p>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between small mb-1"><span>Power</span><span class="fw-bold">80W</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Temp Range</span><span class="fw-bold">-18°C to +10°C</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Insulation</span><span class="fw-bold">72hr Cold Retention</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                        </div>
+                        <div class="text-center mb-3"><h4 class="mb-0" style="color: #00b4db;">₦120,000</h4></div>
+                        <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20100L%20solar%20freezer." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 freezer-item" data-size="medium">
+                <div class="freezer-card">
+                    <div class="freezer-img-container">
+                        <img src="img/freezers/freezer-150l.jpg" class="freezer-img" alt="150L Solar Freezer">
+                        <div class="temp-badge">-18°C</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-2">
+                            <span class="eco-badge"><i class="fa fa-leaf"></i> A+ Energy</span>
+                            <span class="badge bg-success ms-1">150L</span>
+                        </div>
+                        <h5 class="mb-2">150L Solar Chest Freezer</h5>
+                        <p class="text-muted small mb-3">Great for shops and small restaurants. Dual function: freezer or fridge mode.</p>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between small mb-1"><span>Power</span><span class="fw-bold">100W</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Temp Range</span><span class="fw-bold">-18°C to +10°C</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Insulation</span><span class="fw-bold">72hr Cold Retention</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                        </div>
+                        <div class="text-center mb-3"><h4 class="mb-0" style="color: #00b4db;">₦155,000</h4></div>
+                        <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20150L%20solar%20freezer." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 freezer-item" data-size="medium">
+                <div class="freezer-card">
+                    <div class="freezer-img-container">
+                        <img src="img/freezers/freezer-200l.jpg" class="freezer-img" alt="200L Solar Freezer">
+                        <div class="temp-badge">-18°C</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-2">
+                            <span class="eco-badge"><i class="fa fa-leaf"></i> A+ Energy</span>
+                            <span class="badge bg-warning text-dark ms-1">Best Value</span>
+                        </div>
+                        <h5 class="mb-2">200L Solar Chest Freezer</h5>
+                        <p class="text-muted small mb-3">Large capacity for big families and commercial use. Stores bulk frozen goods.</p>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between small mb-1"><span>Power</span><span class="fw-bold">120W</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Temp Range</span><span class="fw-bold">-18°C to +10°C</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Insulation</span><span class="fw-bold">72hr Cold Retention</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                        </div>
+                        <div class="text-center mb-3"><h4 class="mb-0" style="color: #00b4db;">₦195,000</h4></div>
+                        <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20200L%20solar%20freezer." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 freezer-item" data-size="large">
+                <div class="freezer-card">
+                    <div class="freezer-img-container">
+                        <img src="img/freezers/freezer-250l.jpg" class="freezer-img" alt="250L Solar Freezer">
+                        <div class="temp-badge">-18°C</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-2">
+                            <span class="eco-badge"><i class="fa fa-leaf"></i> A+ Energy</span>
+                            <span class="badge bg-danger ms-1">250L</span>
+                        </div>
+                        <h5 class="mb-2">250L Solar Chest Freezer</h5>
+                        <p class="text-muted small mb-3">Commercial-grade capacity. Perfect for butcher shops, fish sellers, and restaurants.</p>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between small mb-1"><span>Power</span><span class="fw-bold">140W</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Temp Range</span><span class="fw-bold">-18°C to +10°C</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Insulation</span><span class="fw-bold">72hr Cold Retention</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                        </div>
+                        <div class="text-center mb-3"><h4 class="mb-0" style="color: #00b4db;">₦240,000</h4></div>
+                        <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20250L%20solar%20freezer." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 freezer-item" data-size="large">
+                <div class="freezer-card">
+                    <div class="freezer-img-container">
+                        <img src="img/freezers/freezer-300l.jpg" class="freezer-img" alt="300L Solar Freezer">
+                        <div class="temp-badge">-18°C</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-2">
+                            <span class="eco-badge"><i class="fa fa-leaf"></i> A+ Energy</span>
+                            <span class="badge bg-dark ms-1">Heavy Duty</span>
+                        </div>
+                        <h5 class="mb-2">300L Solar Chest Freezer</h5>
+                        <p class="text-muted small mb-3">Maximum capacity for industrial use. Cold storage for farms and factories.</p>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between small mb-1"><span>Power</span><span class="fw-bold">150W</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Temp Range</span><span class="fw-bold">-18°C to +10°C</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Insulation</span><span class="fw-bold">72hr Cold Retention</span></div>
+                            <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">36 Months</span></div>
+                        </div>
+                        <div class="text-center mb-3"><h4 class="mb-0" style="color: #00b4db;">₦285,000</h4></div>
+                        <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20300L%20solar%20freezer." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="savings-calculator">
+                    <h4 class="mb-3"><i class="fa fa-calculator me-2"></i>Fuel Savings Calculator</h4>
+                    <p class="mb-3">See how much you save yearly by switching from generator to solar freezer:</p>
+                    <div class="slider-container">
+                        <label class="mb-2">Daily Generator Runtime (hours): <span id="hoursValue" class="fw-bold">6</span></label>
+                        <input type="range" class="range-slider" id="hoursSlider" min="1" max="24" value="6" oninput="calculateSavings()">
+                    </div>
+                    <div class="slider-container">
+                        <label class="mb-2">Fuel Price per Liter: <span id="fuelValue" class="fw-bold">₦800</span></label>
+                        <input type="range" class="range-slider" id="fuelSlider" min="500" max="1500" value="800" step="50" oninput="calculateSavings()">
+                    </div>
+                    <div class="text-center mt-4">
+                        <p class="mb-1">Your Yearly Savings:</p>
+                        <div class="savings-amount" id="yearlySavings">₦4,380,000</div>
+                        <p class="mt-2 mb-0 small">Solar freezer pays for itself in under 2 months!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h5 class="section-about-title pe-3">Why Solar?</h5>
+                <h1 class="mb-4">Save Money & <span style="color: #00b4db;">The Environment</span></h1>
+                <p class="mb-4">A typical generator-powered freezer costs ₦1,500-₦2,000 daily in fuel. Our solar freezers run on free sunlight — saving you over ₦500,000 yearly while eliminating noise and air pollution.</p>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-4">
+                            <i class="fa fa-gas-pump fa-2x text-danger me-3"></i>
+                            <div><h6 class="mb-0">Zero Fuel Cost</h6><small class="text-muted">No petrol or diesel needed ever</small></div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-4">
+                            <i class="fa fa-volume-mute fa-2x text-primary me-3"></i>
+                            <div><h6 class="mb-0">Zero Noise</h6><small class="text-muted">Sleep peacefully, no generator hum</small></div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-4">
+                            <i class="fa fa-tree fa-2x text-success me-3"></i>
+                            <div><h6 class="mb-0">Zero Emissions</h6><small class="text-muted">Clean energy, no CO2 pollution</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center" style="max-width: 900px;">
+            <h5 class="section-title px-3">Ready to Go Solar?</h5>
+            <h1 class="mb-3">Keep It Cool the Smart Way</h1>
+            <p class="mb-4">Order your solar freezer today and start saving immediately. We deliver nationwide with full installation support.</p>
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20a%20solar%20freezer." target="_blank"><i class="fab fa-whatsapp me-2"></i>Order on WhatsApp</a>
+            <a class="btn btn-outline-primary rounded-pill py-3 px-5 ms-3" href="tel:+2349065604615"><i class="fa fa-phone-alt me-2"></i>Call: 0906 560 4615</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid footer py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Get In Touch</h4>
+                    <a href="https://maps.google.com/?q=Alaba+International+Market+Ojo+Lagos" target="_blank"><i class="fas fa-home me-2"></i> Shop F1485B, Alaba International Market, Ojo, Lagos</a>
+                    <a href="mailto:accglobalsolar@gmail.com"><i class="fas fa-envelope me-2"></i> accglobalsolar@gmail.com</a>
+                    <a href="tel:+2349065604615"><i class="fas fa-phone me-2"></i> 0906 560 4615</a>
+                    <div class="d-flex align-items-center mt-3">
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Services</h4>
+                    <a href="solar-installation.html"><i class="fas fa-angle-right me-2"></i> Solar Installation</a>
+                    <a href="maintenance-repair.html"><i class="fas fa-angle-right me-2"></i> Maintenance & Repair</a>
+                    <a href="energy-consultation.html"><i class="fas fa-angle-right me-2"></i> Energy Consultation</a>
+                    <a href="nationwide-delivery.html"><i class="fas fa-angle-right me-2"></i> Nationwide Delivery</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Products</h4>
+                    <a href="solar-panels.html"><i class="fas fa-angle-right me-2"></i> Solar Panels</a>
+                    <a href="solar-batteries.html"><i class="fas fa-angle-right me-2"></i> Solar Batteries</a>
+                    <a href="solar-inverters.html"><i class="fas fa-angle-right me-2"></i> Solar Inverters</a>
+                    <a href="charge-controllers.html"><i class="fas fa-angle-right me-2"></i> Charge Controllers</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item">
+                    <h4 class="text-white mb-4">Business Hours</h4>
+                    <div class="bg-dark rounded p-3 mb-4">
+                        <div class="d-flex justify-content-between text-white mb-2"><span>Mon – Sat</span><span class="text-primary">8:00 AM – 6:00 PM</span></div>
+                        <div class="d-flex justify-content-between text-white"><span>Sunday</span><span class="text-danger">Closed</span></div>
+                    </div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quick%20quote." class="btn btn-success rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid copyright text-body py-4">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 text-center text-md-end mb-md-0">
+                <i class="fas fa-copyright me-2"></i><a class="text-white" href="index.html">A.C C Global Solar Energy</a>, All rights reserved.
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="easing.min.js"></script>
+<script src="waypoints.min.js"></script>
+<script src="main.js"></script>
+<script>
+    function filterFreezers(size, btn) {
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.freezer-item').forEach(item => {
+            if (size === 'all' || item.dataset.size === size) {
+                item.style.display = 'block';
+                setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 50);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                setTimeout(() => { item.style.display = 'none'; }, 300);
+            }
+        });
+    }
+
+    function calculateSavings() {
+        const hours = parseInt(document.getElementById('hoursSlider').value);
+        const fuelPrice = parseInt(document.getElementById('fuelSlider').value);
+        document.getElementById('hoursValue').textContent = hours;
+        document.getElementById('fuelValue').textContent = '₦' + fuelPrice;
+        const dailyFuel = hours * 2.5;
+        const yearlyCost = dailyFuel * fuelPrice * 365;
+        document.getElementById('yearlySavings').textContent = '₦' + yearlyCost.toLocaleString();
+    }
+
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake-float';
+        snowflake.innerHTML = '❄';
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.fontSize = (Math.random() * 15 + 10) + 'px';
+        snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        document.body.appendChild(snowflake);
+        setTimeout(() => snowflake.remove(), 10000);
+    }
+    setInterval(createSnowflake, 2000);
+
+    document.querySelectorAll('.freezer-item').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(40px)';
+        card.style.transition = 'all 0.6s ease';
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 150);
+    });
+</script>
+</body>
+</html>

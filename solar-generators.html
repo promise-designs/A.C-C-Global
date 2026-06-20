@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Solar Generators - A.C C Global Solar Energy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="solar generator Nigeria, portable solar power station, solar power bank, camping solar generator, backup power" name="keywords">
+    <meta content="Portable solar generators and power stations. Perfect for camping, outdoor events, and emergency backup. Various capacities available with nationwide delivery." name="description">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .generator-card { background: linear-gradient(145deg, #ffffff, #f0f0f0); border-radius: 25px; overflow: hidden; transition: all 0.5s ease; position: relative; border: 2px solid transparent; }
+        .generator-card:hover { border-color: #C41E3A; transform: translateY(-12px); box-shadow: 0 25px 50px rgba(196,30,58,0.15); }
+        .generator-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #C41E3A, #0d6efd, #28a745); }
+        .power-output { font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, #C41E3A, #0d6efd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .port-badge { display: inline-flex; align-items: center; gap: 5px; background: #e9ecef; padding: 5px 12px; border-radius: 15px; font-size: 0.75rem; font-weight: 600; margin: 2px; }
+        .scenario-card { background: white; border-radius: 20px; padding: 25px; text-align: center; transition: all 0.4s ease; cursor: pointer; border: 2px solid #e9ecef; }
+        .scenario-card:hover { border-color: #C41E3A; transform: scale(1.05); }
+        .scenario-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #C41E3A, #0d6efd); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin: 0 auto 15px; }
+        .capacity-btn { border: 2px solid #dee2e6; background: white; border-radius: 20px; padding: 10px 25px; cursor: pointer; transition: all 0.3s; font-weight: 600; }
+        .capacity-btn:hover, .capacity-btn.active { background: linear-gradient(135deg, #C41E3A, #0d6efd); color: white; border-color: transparent; }
+        .battery-visual { width: 100%; height: 40px; background: #e9ecef; border-radius: 20px; overflow: hidden; position: relative; }
+        .battery-visual-fill { height: 100%; border-radius: 20px; transition: width 1s ease; }
+        .battery-visual-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: 700; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+        .power-icon-pulse { animation: powerPulse 2s infinite; }
+        @keyframes powerPulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .usage-timeline { position: relative; padding-left: 30px; }
+        .usage-timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #C41E3A, #0d6efd); }
+        .timeline-dot { position: absolute; left: 0; width: 22px; height: 22px; background: white; border: 3px solid #C41E3A; border-radius: 50%; }
+    </style>
+</head>
+<body>
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="container-fluid bg-primary px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a href="tel:+2349065604615"><small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>0906 560 4615</small></a>
+                <a href="#"><small class="me-3 text-light"><i class="fa fa-truck me-2"></i>Nationwide Delivery</small></a>
+                <a href="https://wa.me/2349065604615" target="_blank"><small class="text-light"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</small></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-sun me-3"></i>A.C C Global Solar Energy</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-installation.html" class="dropdown-item">Solar Installation</a>
+                        <a href="maintenance-repair.html" class="dropdown-item">Maintenance & Repair</a>
+                        <a href="energy-consultation.html" class="dropdown-item">Energy Consultation</a>
+                        <a href="nationwide-delivery.html" class="dropdown-item">Nationwide Delivery</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Products</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-panels.html" class="dropdown-item">Solar Panels</a>
+                        <a href="solar-batteries.html" class="dropdown-item">Solar Batteries</a>
+                        <a href="solar-inverters.html" class="dropdown-item">Solar Inverters</a>
+                        <a href="charge-controllers.html" class="dropdown-item">Charge Controllers</a>
+                        <a href="solar-freezers.html" class="dropdown-item">Solar Freezers</a>
+                        <a href="solar-generators.html" class="dropdown-item active">Solar Generators</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="other-products.html" class="dropdown-item">Other Products</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quote." class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" target="_blank"><i class="fab fa-whatsapp me-2"></i>Get a Quote</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Solar Generators</h3>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+                <li class="breadcrumb-item active text-white">Solar Generators</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center mb-5">
+            <div class="col-lg-6 order-lg-2">
+                <div class="position-relative">
+                    <div class="rounded-4 overflow-hidden" style="border: 3px solid #C41E3A;">
+                        <img src="img/generators/generator-hero.jpg" class="img-fluid w-100" style="height: 400px; object-fit: cover;" alt="Portable Solar Generator">
+                    </div>
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-danger fs-6 px-3 py-2 rounded-pill power-icon-pulse"><i class="fa fa-bolt me-1"></i> Portable Power</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <h5 class="section-about-title pe-3">Power Anywhere</h5>
+                <h1 class="mb-3">Portable <span class="text-primary">Solar Generators</span></h1>
+                <div class="mb-3">
+                    <span class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                    <span class="ms-2 text-muted">(4.9/5 from 110+ customers)</span>
+                </div>
+                <p class="mb-4">Take power with you anywhere. Our solar generators are all-in-one power stations with built-in battery, inverter, and multiple output ports. Perfect for camping, outdoor events, construction sites, and emergency backup during blackouts.</p>
+                
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <div class="text-center p-3 bg-light rounded-4">
+                            <i class="fa fa-briefcase fa-2x text-primary mb-2"></i>
+                            <h6 class="mb-0">Portable</h6>
+                            <small class="text-muted">Carry anywhere</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center p-3 bg-light rounded-4">
+                            <i class="fa fa-plug fa-2x text-primary mb-2"></i>
+                            <h6 class="mb-0">Multi-Port</h6>
+                            <small class="text-muted">AC, DC, USB</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center p-3 bg-light rounded-4">
+                            <i class="fa fa-charging-station fa-2x text-primary mb-2"></i>
+                            <h6 class="mb-0">Fast Charge</h6>
+                            <small class="text-muted">Solar + AC input</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center p-3 bg-light rounded-4">
+                            <i class="fa fa-moon fa-2x text-primary mb-2"></i>
+                            <h6 class="mb-0">Silent</h6>
+                            <small class="text-muted">No noise at all</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20a%20solar%20generator." target="_blank"><i class="fab fa-whatsapp me-2"></i>Order on WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Our Collection</h5>
+            <h1 class="mb-0">Available Solar Generators</h1>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+            <button class="capacity-btn active" onclick="filterGenerators('all', this)">All Capacities</button>
+            <button class="capacity-btn" onclick="filterGenerators('small', this)">300-500Wh</button>
+            <button class="capacity-btn" onclick="filterGenerators('medium', this)">1000-1500Wh</button>
+            <button class="capacity-btn" onclick="filterGenerators('large', this)">2000Wh+</button>
+        </div>
+        <div class="row g-4" id="generatorGrid">
+        <div class="row g-4" id="generatorGrid">
+            <div class="col-lg-4 col-md-6 generator-item" data-capacity="small">
+                <div class="generator-card p-4 h-100">
+                    <div class="text-center mb-3">
+                        <div class="power-output">300Wh</div>
+                        <span class="badge bg-success">Entry Level</span>
+                    </div>
+                    <h5 class="text-center mb-3">300W Portable Solar Generator</h5>
+                    <p class="text-muted small text-center mb-3">Perfect for phones, laptops, and small electronics. Great for camping and road trips.</p>
+                    <div class="mb-3">
+                        <div class="battery-visual mb-2">
+                            <div class="battery-visual-fill" style="width: 30%; background: linear-gradient(90deg, #28a745, #20c997);"></div>
+                            <div class="battery-visual-text">300Wh Capacity</div>
+                        </div>
+                        <div class="d-flex justify-content-between small mb-1"><span>AC Output</span><span class="fw-bold">300W Pure Sine</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>USB Ports</span><span class="fw-bold">4x USB + 1x USB-C</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>DC Output</span><span class="fw-bold">2x 12V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Recharge</span><span class="fw-bold">Solar + Wall + Car</span></div>
+                    </div>
+                    <div class="mb-3">
+                        <span class="port-badge"><i class="fa fa-plug"></i> AC x2</span>
+                        <span class="port-badge"><i class="fa fa-usb"></i> USB x4</span>
+                        <span class="port-badge"><i class="fa fa-bolt"></i> USB-C</span>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦85,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20300W%20solar%20generator." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 generator-item" data-capacity="small">
+                <div class="generator-card p-4 h-100">
+                    <div class="text-center mb-3">
+                        <div class="power-output">500Wh</div>
+                        <span class="badge bg-primary">Popular</span>
+                    </div>
+                    <h5 class="text-center mb-3">500W Portable Solar Generator</h5>
+                    <p class="text-muted small text-center mb-3">Powers mini fridge, TV, and lights for 4-6 hours. Ideal for small homes.</p>
+                    <div class="mb-3">
+                        <div class="battery-visual mb-2">
+                            <div class="battery-visual-fill" style="width: 50%; background: linear-gradient(90deg, #0d6efd, #6610f2);"></div>
+                            <div class="battery-visual-text">500Wh Capacity</div>
+                        </div>
+                        <div class="d-flex justify-content-between small mb-1"><span>AC Output</span><span class="fw-bold">500W Pure Sine</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>USB Ports</span><span class="fw-bold">4x USB + 2x USB-C</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>DC Output</span><span class="fw-bold">2x 12V + 1x 24V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Recharge</span><span class="fw-bold">Solar + Wall + Car</span></div>
+                    </div>
+                    <div class="mb-3">
+                        <span class="port-badge"><i class="fa fa-plug"></i> AC x3</span>
+                        <span class="port-badge"><i class="fa fa-usb"></i> USB x4</span>
+                        <span class="port-badge"><i class="fa fa-bolt"></i> USB-C x2</span>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦125,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20500W%20solar%20generator." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 generator-item" data-capacity="medium">
+                <div class="generator-card p-4 h-100">
+                    <div class="text-center mb-3">
+                        <div class="power-output">1000Wh</div>
+                        <span class="badge bg-info">Mid-Range</span>
+                    </div>
+                    <h5 class="text-center mb-3">1000W Solar Power Station</h5>
+                    <p class="text-muted small text-center mb-3">Powers full home essentials: fridge, TV, fans, and lights for 8+ hours.</p>
+                    <div class="mb-3">
+                        <div class="battery-visual mb-2">
+                            <div class="battery-visual-fill" style="width: 65%; background: linear-gradient(90deg, #6610f2, #d63384);"></div>
+                            <div class="battery-visual-text">1000Wh Capacity</div>
+                        </div>
+                        <div class="d-flex justify-content-between small mb-1"><span>AC Output</span><span class="fw-bold">1000W Pure Sine</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>USB Ports</span><span class="fw-bold">6x USB + 2x USB-C</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>DC Output</span><span class="fw-bold">4x 12V + 1x 24V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Recharge</span><span class="fw-bold">Solar + Wall + Car</span></div>
+                    </div>
+                    <div class="mb-3">
+                        <span class="port-badge"><i class="fa fa-plug"></i> AC x4</span>
+                        <span class="port-badge"><i class="fa fa-usb"></i> USB x6</span>
+                        <span class="port-badge"><i class="fa fa-bolt"></i> USB-C x2</span>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦185,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%201000W%20solar%20generator." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 generator-item" data-capacity="medium">
+                <div class="generator-card p-4 h-100">
+                    <div class="text-center mb-3">
+                        <div class="power-output">1500Wh</div>
+                        <span class="badge bg-warning text-dark">Best Value</span>
+                    </div>
+                    <h5 class="text-center mb-3">1500W Solar Power Station</h5>
+                    <p class="text-muted small text-center mb-3">Powers home + small AC. Perfect for shops, offices, and medium homes.</p>
+                    <div class="mb-3">
+                        <div class="battery-visual mb-2">
+                            <div class="battery-visual-fill" style="width: 75%; background: linear-gradient(90deg, #d63384, #C41E3A);"></div>
+                            <div class="battery-visual-text">1500Wh Capacity</div>
+                        </div>
+                        <div class="d-flex justify-content-between small mb-1"><span>AC Output</span><span class="fw-bold">1500W Pure Sine</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>USB Ports</span><span class="fw-bold">6x USB + 2x USB-C</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>DC Output</span><span class="fw-bold">4x 12V + 2x 24V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Recharge</span><span class="fw-bold">Solar + Wall + Car</span></div>
+                    </div>
+                    <div class="mb-3">
+                        <span class="port-badge"><i class="fa fa-plug"></i> AC x5</span>
+                        <span class="port-badge"><i class="fa fa-usb"></i> USB x6</span>
+                        <span class="port-badge"><i class="fa fa-bolt"></i> USB-C PD</span>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦265,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%201500W%20solar%20generator." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 generator-item" data-capacity="large">
+                <div class="generator-card p-4 h-100">
+                    <div class="text-center mb-3">
+                        <div class="power-output">2000Wh</div>
+                        <span class="badge bg-danger">Pro</span>
+                    </div>
+                    <h5 class="text-center mb-3">2000W Solar Power Station</h5>
+                    <p class="text-muted small text-center mb-3">Commercial-grade. Powers full home with AC, fridge, and all appliances.</p>
+                    <div class="mb-3">
+                        <div class="battery-visual mb-2">
+                            <div class="battery-visual-fill" style="width: 90%; background: linear-gradient(90deg, #C41E3A, #dc3545);"></div>
+                            <div class="battery-visual-text">2000Wh Capacity</div>
+                        </div>
+                        <div class="d-flex justify-content-between small mb-1"><span>AC Output</span><span class="fw-bold">2000W Pure Sine</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>USB Ports</span><span class="fw-bold">8x USB + 2x USB-C</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>DC Output</span><span class="fw-bold">6x 12V + 2x 24V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Recharge</span><span class="fw-bold">Solar + Wall + Car</span></div>
+                    </div>
+                    <div class="mb-3">
+                        <span class="port-badge"><i class="fa fa-plug"></i> AC x6</span>
+                        <span class="port-badge"><i class="fa fa-usb"></i> USB x8</span>
+                        <span class="port-badge"><i class="fa fa-bolt"></i> USB-C PD</span>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦350,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%202000W%20solar%20generator." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 generator-item" data-capacity="large">
+                <div class="generator-card p-4 h-100">
+                    <div class="text-center mb-3">
+                        <div class="power-output">3000Wh</div>
+                        <span class="badge bg-dark">Heavy Duty</span>
+                    </div>
+                    <h5 class="text-center mb-3">3000W Solar Power Station</h5>
+                    <p class="text-muted small text-center mb-3">Maximum capacity. Powers entire building. Expandable with extra batteries.</p>
+                    <div class="mb-3">
+                        <div class="battery-visual mb-2">
+                            <div class="battery-visual-fill" style="width: 100%; background: linear-gradient(90deg, #dc3545, #fd7e14);"></div>
+                            <div class="battery-visual-text">3000Wh Capacity</div>
+                        </div>
+                        <div class="d-flex justify-content-between small mb-1"><span>AC Output</span><span class="fw-bold">3000W Pure Sine</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>USB Ports</span><span class="fw-bold">8x USB + 4x USB-C</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>DC Output</span><span class="fw-bold">6x 12V + 4x 24V</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Recharge</span><span class="fw-bold">Solar + Wall + Car</span></div>
+                    </div>
+                    <div class="mb-3">
+                        <span class="port-badge"><i class="fa fa-plug"></i> AC x8</span>
+                        <span class="port-badge"><i class="fa fa-usb"></i> USB x8</span>
+                        <span class="port-badge"><i class="fa fa-bolt"></i> USB-C x4</span>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦480,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%203000W%20solar%20generator." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Use Cases</h5>
+            <h1 class="mb-0">Perfect For Every Situation</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="scenario-card">
+                    <div class="scenario-icon"><i class="fa fa-campground"></i></div>
+                    <h5 class="mb-2">Camping</h5>
+                    <p class="text-muted small mb-0">Power lights, charge phones, run a mini fridge in the wild.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="scenario-card">
+                    <div class="scenario-icon"><i class="fa fa-home"></i></div>
+                    <h5 class="mb-2">Home Backup</h5>
+                    <p class="text-muted small mb-0">Keep essentials running during NEPA blackouts.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="scenario-card">
+                    <div class="scenario-icon"><i class="fa fa-store"></i></div>
+                    <h5 class="mb-2">Shops & Offices</h5>
+                    <p class="text-muted small mb-0">Power POS systems, fans, and lights all day.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="scenario-card">
+                    <div class="scenario-icon"><i class="fa fa-hard-hat"></i></div>
+                    <h5 class="mb-2">Construction</h5>
+                    <p class="text-muted small mb-0">Power tools and equipment at remote job sites.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h5 class="section-about-title pe-3">How It Works</h5>
+                <h1 class="mb-4">Simple 3-Step <span class="text-primary">Power Solution</span></h1>
+                <div class="usage-timeline">
+                    <div class="position-relative mb-4">
+                        <div class="timeline-dot" style="top: 0;"></div>
+                        <div class="ps-4">
+                            <h6 class="text-primary mb-1">1. Charge It</h6>
+                            <p class="text-muted small mb-0">Charge via solar panels (included), wall socket, or car charger. Full charge in 4-8 hours.</p>
+                        </div>
+                    </div>
+                    <div class="position-relative mb-4">
+                        <div class="timeline-dot" style="top: 0;"></div>
+                        <div class="ps-4">
+                            <h6 class="text-primary mb-1">2. Plug In</h6>
+                            <p class="text-muted small mb-0">Connect your devices to AC outlets, USB ports, or DC outputs. Multiple devices at once.</p>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <div class="timeline-dot" style="top: 0;"></div>
+                        <div class="ps-4">
+                            <h6 class="text-primary mb-1">3. Power On</h6>
+                            <p class="text-muted small mb-0">Enjoy clean, silent power. LCD display shows remaining capacity and output watts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-white p-4 rounded-4" style="border: 2px solid #C41E3A;">
+                    <h5 class="mb-3"><i class="fa fa-box-open me-2 text-primary"></i>What's In The Box?</h5>
+                    <div class="row g-2">
+                        <div class="col-6"><div class="p-2 bg-light rounded"><i class="fa fa-check text-success me-1"></i> Solar Generator Unit</div></div>
+                        <div class="col-6"><div class="p-2 bg-light rounded"><i class="fa fa-check text-success me-1"></i> Solar Panel (50-200W)</div></div>
+                        <div class="col-6"><div class="p-2 bg-light rounded"><i class="fa fa-check text-success me-1"></i> AC Charging Cable</div></div>
+                        <div class="col-6"><div class="p-2 bg-light rounded"><i class="fa fa-check text-success me-1"></i> Car Charging Cable</div></div>
+                        <div class="col-6"><div class="p-2 bg-light rounded"><i class="fa fa-check text-success me-1"></i> User Manual</div></div>
+                        <div class="col-6"><div class="p-2 bg-light rounded"><i class="fa fa-check text-success me-1"></i> 24-Month Warranty</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center" style="max-width: 900px;">
+            <h5 class="section-title px-3">Power Anywhere</h5>
+            <h1 class="mb-3">Your Portable Power Solution</h1>
+            <p class="mb-4">Never be without power again. Our solar generators are ready for any adventure or emergency. Order now with nationwide delivery.</p>
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20a%20solar%20generator." target="_blank"><i class="fab fa-whatsapp me-2"></i>Order on WhatsApp</a>
+            <a class="btn btn-outline-primary rounded-pill py-3 px-5 ms-3" href="tel:+2349065604615"><i class="fa fa-phone-alt me-2"></i>Call: 0906 560 4615</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid footer py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Get In Touch</h4>
+                    <a href="https://maps.google.com/?q=Alaba+International+Market+Ojo+Lagos" target="_blank"><i class="fas fa-home me-2"></i> Shop F1485B, Alaba International Market, Ojo, Lagos</a>
+                    <a href="mailto:accglobalsolar@gmail.com"><i class="fas fa-envelope me-2"></i> accglobalsolar@gmail.com</a>
+                    <a href="tel:+2349065604615"><i class="fas fa-phone me-2"></i> 0906 560 4615</a>
+                    <div class="d-flex align-items-center mt-3">
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Services</h4>
+                    <a href="solar-installation.html"><i class="fas fa-angle-right me-2"></i> Solar Installation</a>
+                    <a href="maintenance-repair.html"><i class="fas fa-angle-right me-2"></i> Maintenance & Repair</a>
+                    <a href="energy-consultation.html"><i class="fas fa-angle-right me-2"></i> Energy Consultation</a>
+                    <a href="nationwide-delivery.html"><i class="fas fa-angle-right me-2"></i> Nationwide Delivery</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Products</h4>
+                    <a href="solar-panels.html"><i class="fas fa-angle-right me-2"></i> Solar Panels</a>
+                    <a href="solar-batteries.html"><i class="fas fa-angle-right me-2"></i> Solar Batteries</a>
+                    <a href="solar-inverters.html"><i class="fas fa-angle-right me-2"></i> Solar Inverters</a>
+                    <a href="charge-controllers.html"><i class="fas fa-angle-right me-2"></i> Charge Controllers</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item">
+                    <h4 class="text-white mb-4">Business Hours</h4>
+                    <div class="bg-dark rounded p-3 mb-4">
+                        <div class="d-flex justify-content-between text-white mb-2"><span>Mon – Sat</span><span class="text-primary">8:00 AM – 6:00 PM</span></div>
+                        <div class="d-flex justify-content-between text-white"><span>Sunday</span><span class="text-danger">Closed</span></div>
+                    </div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quick%20quote." class="btn btn-success rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid copyright text-body py-4">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 text-center text-md-end mb-md-0">
+                <i class="fas fa-copyright me-2"></i><a class="text-white" href="index.html">A.C C Global Solar Energy</a>, All rights reserved.
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="easing.min.js"></script>
+<script src="waypoints.min.js"></script>
+<script src="main.js"></script>
+<script>
+    // Generator capacity filter
+    function filterGenerators(capacity, btn) {
+        document.querySelectorAll('.capacity-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        document.querySelectorAll('.generator-item').forEach(item => {
+            if (capacity === 'all' || item.dataset.capacity === capacity) {
+                item.style.display = 'block';
+                setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 50);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(25px)';
+                setTimeout(() => { item.style.display = 'none'; }, 300);
+            }
+        });
+    }
+
+    // Battery visual animation on scroll
+    const batteryObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fill = entry.target;
+                const targetWidth = fill.style.width;
+                fill.style.width = '0%';
+                setTimeout(() => { fill.style.width = targetWidth; }, 400);
+                batteryObserver.unobserve(fill);
+            }
+        });
+    });
+    document.querySelectorAll('.battery-visual-fill').forEach(b => batteryObserver.observe(b));
+
+    // Card entrance animation
+    document.querySelectorAll('.generator-item').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 120);
+    });
+
+    // Scenario card hover effect
+    document.querySelectorAll('.scenario-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.querySelector('.scenario-icon').style.transform = 'rotateY(360deg)';
+            this.querySelector('.scenario-icon').style.transition = 'transform 0.6s';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.querySelector('.scenario-icon').style.transform = 'rotateY(0deg)';
+        });
+    });
+</script>
+</body>
+</html>

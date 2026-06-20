@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Solar Inverters - A.C C Global Solar Energy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="solar inverters Nigeria, pure sine wave inverter, hybrid inverter, 1KVA inverter, 3KVA inverter, 5KVA inverter" name="keywords">
+    <meta content="Pure sine wave solar inverters from 1KVA to 10KVA. Hybrid, off-grid, and grid-tie options available. Nationwide delivery across Nigeria." name="description">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .inverter-card { background: linear-gradient(145deg, #ffffff, #f8f9fa); border-radius: 20px; transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .inverter-card::after { content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, rgba(196,30,58,0.08) 0%, transparent 70%); transition: all 0.5s; }
+        .inverter-card:hover::after { top: -30%; right: -30%; }
+        .inverter-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); }
+        .kva-badge { width: 80px; height: 80px; background: linear-gradient(135deg, #C41E3A, #0d6efd); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem; margin: 0 auto 15px; box-shadow: 0 8px 20px rgba(196,30,58,0.3); }
+        .wave-indicator { display: inline-flex; align-items: center; gap: 5px; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .wave-pure { background: #d4edda; color: #155724; }
+        .wave-modified { background: #fff3cd; color: #856404; }
+        .type-tag { border: 2px solid; border-radius: 25px; padding: 6px 20px; font-weight: 600; cursor: pointer; transition: all 0.3s; background: white; }
+        .type-tag:hover, .type-tag.active { background: #C41E3A; color: white; border-color: #C41E3A; }
+        .load-calculator { background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 20px; padding: 30px; color: white; }
+        .load-item { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 10px 15px; margin: 5px; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s; }
+        .load-item:hover, .load-item.selected { background: #C41E3A; }
+        .power-display { font-size: 2.5rem; font-weight: 700; color: #C41E3A; }
+        .recommendation-box { background: #f8f9fa; border-left: 5px solid #C41E3A; border-radius: 0 15px 15px 0; padding: 20px; }
+        .feature-icon-box { width: 60px; height: 60px; background: linear-gradient(135deg, #C41E3A, #0d6efd); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="container-fluid bg-primary px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a href="tel:+2349065604615"><small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>0906 560 4615</small></a>
+                <a href="#"><small class="me-3 text-light"><i class="fa fa-truck me-2"></i>Nationwide Delivery</small></a>
+                <a href="https://wa.me/2349065604615" target="_blank"><small class="text-light"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</small></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-sun me-3"></i>A.C C Global Solar Energy</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-installation.html" class="dropdown-item">Solar Installation</a>
+                        <a href="maintenance-repair.html" class="dropdown-item">Maintenance & Repair</a>
+                        <a href="energy-consultation.html" class="dropdown-item">Energy Consultation</a>
+                        <a href="nationwide-delivery.html" class="dropdown-item">Nationwide Delivery</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Products</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-panels.html" class="dropdown-item">Solar Panels</a>
+                        <a href="solar-batteries.html" class="dropdown-item">Solar Batteries</a>
+                        <a href="solar-inverters.html" class="dropdown-item active">Solar Inverters</a>
+                        <a href="charge-controllers.html" class="dropdown-item">Charge Controllers</a>
+                        <a href="solar-freezers.html" class="dropdown-item">Solar Freezers</a>
+                        <a href="solar-generators.html" class="dropdown-item">Solar Generators</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="other-products.html" class="dropdown-item">Other Products</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quote." class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" target="_blank"><i class="fab fa-whatsapp me-2"></i>Get a Quote</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Solar Inverters</h3>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+                <li class="breadcrumb-item active text-white">Solar Inverters</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center mb-5">
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <div class="rounded-4 overflow-hidden" style="border: 3px solid #C41E3A;">
+                        <img src="solar-inverter.jpg" class="img-fluid w-100" style="height: 400px; object-fit: cover;" alt="Premium Solar Inverters">
+                    </div>
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-primary fs-6 px-3 py-2 rounded-pill"><i class="fa fa-bolt me-1"></i> Pure Sine Wave</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h5 class="section-about-title pe-3">Power Conversion</h5>
+                <h1 class="mb-3">Pure Sine Wave <span class="text-primary">Solar Inverters</span></h1>
+                <div class="mb-3">
+                    <span class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <span class="ms-2 text-muted">(5.0/5 from 180+ customers)</span>
+                </div>
+                <p class="mb-4">Convert your solar DC power to clean AC power for all your appliances. We stock pure sine wave inverters from 1KVA to 10KVA — hybrid, off-grid, and grid-tie options. All inverters come with overload protection, LCD display, and remote monitoring.</p>
+                
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-4">
+                            <div class="feature-icon-box me-3"><i class="fa fa-plug"></i></div>
+                            <div><h6 class="mb-0">Pure Sine</h6><small class="text-muted">Safe for all devices</small></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-4">
+                            <div class="feature-icon-box me-3"><i class="fa fa-shield-alt"></i></div>
+                            <div><h6 class="mb-0">Protected</h6><small class="text-muted">Overload & short-circuit</small></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="mb-3">Filter by Type:</h5>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <button class="type-tag active" onclick="filterInverters('all', this)">All Inverters</button>
+                    <button class="type-tag" onclick="filterInverters('hybrid', this)">Hybrid</button>
+                    <button class="type-tag" onclick="filterInverters('offgrid', this)">Off-Grid</button>
+                    <button class="type-tag" onclick="filterInverters('gridtie', this)">Grid-Tie</button>
+                </div>
+                
+                <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%20a%20solar%20inverter." target="_blank"><i class="fab fa-whatsapp me-2"></i>Order on WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Our Collection</h5>
+            <h1 class="mb-0">Available Inverters</h1>
+        </div>
+        <div class="row g-4" id="inverterGrid">
+            <div class="col-lg-4 col-md-6 inverter-item" data-type="offgrid">
+                <div class="inverter-card p-4 h-100">
+                    <div class="kva-badge">1KVA</div>
+                    <div class="text-center mb-3">
+                        <span class="wave-indicator wave-pure"><i class="fa fa-check-circle"></i> Pure Sine</span>
+                        <span class="badge bg-success ms-1">In Stock</span>
+                    </div>
+                    <h5 class="text-center mb-2">1KVA Off-Grid Inverter</h5>
+                    <p class="text-muted small text-center mb-3">Perfect for small homes. Powers lights, fans, TV, and phone charging.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Output</span><span class="fw-bold">800W</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Input</span><span class="fw-bold">12V DC</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">90%</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">12 Months</span></div>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦65,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%201KVA%20inverter." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 inverter-item" data-type="offgrid">
+                <div class="inverter-card p-4 h-100">
+                    <div class="kva-badge">2KVA</div>
+                    <div class="text-center mb-3">
+                        <span class="wave-indicator wave-pure"><i class="fa fa-check-circle"></i> Pure Sine</span>
+                        <span class="badge bg-primary ms-1">Popular</span>
+                    </div>
+                    <h5 class="text-center mb-2">2KVA Off-Grid Inverter</h5>
+                    <p class="text-muted small text-center mb-3">Great for medium homes. Powers fridge, TV, fans, and lights together.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Output</span><span class="fw-bold">1600W</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Input</span><span class="fw-bold">24V DC</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">92%</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">18 Months</span></div>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦95,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%202KVA%20inverter." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 inverter-item" data-type="hybrid">
+                <div class="inverter-card p-4 h-100">
+                    <div class="kva-badge">3KVA</div>
+                    <div class="text-center mb-3">
+                        <span class="wave-indicator wave-pure"><i class="fa fa-check-circle"></i> Pure Sine</span>
+                        <span class="badge bg-info ms-1">Hybrid</span>
+                    </div>
+                    <h5 class="text-center mb-2">3KVA Hybrid Inverter</h5>
+                    <p class="text-muted small text-center mb-3">Switches between solar, battery, and grid automatically. Smart choice.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Output</span><span class="fw-bold">2400W</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Input</span><span class="fw-bold">24V DC</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">94%</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦145,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%203KVA%20hybrid%20inverter." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 inverter-item" data-type="hybrid">
+                <div class="inverter-card p-4 h-100">
+                    <div class="kva-badge">5KVA</div>
+                    <div class="text-center mb-3">
+                        <span class="wave-indicator wave-pure"><i class="fa fa-check-circle"></i> Pure Sine</span>
+                        <span class="badge bg-warning text-dark ms-1">Best Value</span>
+                    </div>
+                    <h5 class="text-center mb-2">5KVA Hybrid Inverter</h5>
+                    <p class="text-muted small text-center mb-3">Powers full home including AC, washing machine, and water pump.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Output</span><span class="fw-bold">4000W</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Input</span><span class="fw-bold">48V DC</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">95%</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦220,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%205KVA%20hybrid%20inverter." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+           
+<div class="col-lg-4 col-md-6 inverter-item" data-type="gridtie">
+                <div class="inverter-card p-4 h-100">
+                    <div class="kva-badge">5KVA</div>
+                    <div class="text-center mb-3">
+                        <span class="wave-indicator wave-pure"><i class="fa fa-check-circle"></i> Pure Sine</span>
+                        <span class="badge bg-secondary ms-1">Grid-Tie</span>
+                    </div>
+                    <h5 class="text-center mb-2">5KVA Grid-Tie Inverter</h5>
+                    <p class="text-muted small text-center mb-3">Feeds excess power back to the grid. No battery needed. Net metering ready.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Output</span><span class="fw-bold">4000W</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Input</span><span class="fw-bold">400V DC</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">98%</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">24 Months</span></div>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦195,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%205KVA%20grid-tie%20inverter." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 inverter-item" data-type="hybrid">
+                <div class="inverter-card p-4 h-100">
+                    <div class="kva-badge">10KVA</div>
+                    <div class="text-center mb-3">
+                        <span class="wave-indicator wave-pure"><i class="fa fa-check-circle"></i> Pure Sine</span>
+                        <span class="badge bg-danger ms-1">Heavy Duty</span>
+                    </div>
+                    <h5 class="text-center mb-2">10KVA Hybrid Inverter</h5>
+                    <p class="text-muted small text-center mb-3">Commercial-grade power. For large homes, offices, and small businesses.</p>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1"><span>Output</span><span class="fw-bold">8000W</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Input</span><span class="fw-bold">48V DC</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Efficiency</span><span class="fw-bold">96%</span></div>
+                        <div class="d-flex justify-content-between small mb-1"><span>Warranty</span><span class="fw-bold">36 Months</span></div>
+                    </div>
+                    <div class="text-center mb-3"><h4 class="text-danger mb-0">₦380,000</h4></div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20buy%2010KVA%20hybrid%20inverter." class="btn btn-primary rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="load-calculator">
+                    <h4 class="mb-4"><i class="fa fa-calculator me-2"></i>Inverter Size Calculator</h4>
+                    <p class="mb-3">Click the appliances you want to power to find your ideal inverter size:</p>
+                    <div class="mb-3">
+                        <div class="load-item" data-watt="60" onclick="toggleLoad(this)"><i class="fa fa-lightbulb"></i> LED Bulb (60W)</div>
+                        <div class="load-item" data-watt="80" onclick="toggleLoad(this)"><i class="fa fa-fan"></i> Ceiling Fan (80W)</div>
+                        <div class="load-item" data-watt="150" onclick="toggleLoad(this)"><i class="fa fa-tv"></i> LED TV (150W)</div>
+                        <div class="load-item" data-watt="200" onclick="toggleLoad(this)"><i class="fa fa-laptop"></i> Laptop (200W)</div>
+                        <div class="load-item" data-watt="250" onclick="toggleLoad(this)"><i class="fa fa-snowflake"></i> Fridge (250W)</div>
+                        <div class="load-item" data-watt="1000" onclick="toggleLoad(this)"><i class="fa fa-wind"></i> 1HP AC (1000W)</div>
+                        <div class="load-item" data-watt="500" onclick="toggleLoad(this)"><i class="fa fa-tint"></i> Water Pump (500W)</div>
+                        <div class="load-item" data-watt="1200" onclick="toggleLoad(this)"><i class="fa fa-wind"></i> 1.5HP AC (1200W)</div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <p class="mb-1">Total Load:</p>
+                        <div class="power-display" id="totalLoad">0W</div>
+                        <p class="mt-2 mb-0" id="recommendation">Select appliances to see recommendation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h5 class="section-about-title pe-3">Smart Choice</h5>
+                <h1 class="mb-4">Find Your <span class="text-primary">Perfect Inverter</span></h1>
+                <p class="mb-4">Choosing the right inverter is crucial. Too small and it will overload. Too big and you waste money. Use our calculator or contact us for a free load assessment.</p>
+                <div class="recommendation-box mb-4">
+                    <h6 class="text-primary mb-2"><i class="fa fa-info-circle me-2"></i>Pro Tip</h6>
+                    <p class="mb-0">Always choose an inverter 20-30% larger than your total load. This prevents overload and allows for future expansion. For example, if your load is 2000W, choose a 3KVA (2400W) inverter.</p>
+                </div>
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="text-center p-3 bg-light rounded-4">
+                            <i class="fa fa-headset fa-2x text-primary mb-2"></i>
+                            <h6 class="mb-0">Free Sizing</h6>
+                            <small class="text-muted">Expert advice</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center p-3 bg-light rounded-4">
+                            <i class="fa fa-tools fa-2x text-primary mb-2"></i>
+                            <h6 class="mb-0">Installation</h6>
+                            <small class="text-muted">Available on request</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center" style="max-width: 900px;">
+            <h5 class="section-title px-3">Need Help?</h5>
+            <h1 class="mb-3">Not Sure Which Inverter You Need?</h1>
+            <p class="mb-4">Inverter sizing depends on your total appliance load and whether you want backup power. Our experts will calculate the perfect size for your home or business.</p>
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20need%20help%20choosing%20an%20inverter." target="_blank"><i class="fab fa-whatsapp me-2"></i>Get Free Advice</a>
+            <a class="btn btn-outline-primary rounded-pill py-3 px-5 ms-3" href="energy-consultation.html"><i class="fa fa-clipboard-check me-2"></i>Book Consultation</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid footer py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Get In Touch</h4>
+                    <a href="https://maps.google.com/?q=Alaba+International+Market+Ojo+Lagos" target="_blank"><i class="fas fa-home me-2"></i> Shop F1485B, Alaba International Market, Ojo, Lagos</a>
+                    <a href="mailto:accglobalsolar@gmail.com"><i class="fas fa-envelope me-2"></i> accglobalsolar@gmail.com</a>
+                    <a href="tel:+2349065604615"><i class="fas fa-phone me-2"></i> 0906 560 4615</a>
+                    <div class="d-flex align-items-center mt-3">
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Services</h4>
+                    <a href="solar-installation.html"><i class="fas fa-angle-right me-2"></i> Solar Installation</a>
+                    <a href="maintenance-repair.html"><i class="fas fa-angle-right me-2"></i> Maintenance & Repair</a>
+                    <a href="energy-consultation.html"><i class="fas fa-angle-right me-2"></i> Energy Consultation</a>
+                    <a href="nationwide-delivery.html"><i class="fas fa-angle-right me-2"></i> Nationwide Delivery</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Products</h4>
+                    <a href="solar-panels.html"><i class="fas fa-angle-right me-2"></i> Solar Panels</a>
+                    <a href="solar-batteries.html"><i class="fas fa-angle-right me-2"></i> Solar Batteries</a>
+                    <a href="solar-inverters.html"><i class="fas fa-angle-right me-2"></i> Solar Inverters</a>
+                    <a href="charge-controllers.html"><i class="fas fa-angle-right me-2"></i> Charge Controllers</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item">
+                    <h4 class="text-white mb-4">Business Hours</h4>
+                    <div class="bg-dark rounded p-3 mb-4">
+                        <div class="d-flex justify-content-between text-white mb-2"><span>Mon – Sat</span><span class="text-primary">8:00 AM – 6:00 PM</span></div>
+                        <div class="d-flex justify-content-between text-white"><span>Sunday</span><span class="text-danger">Closed</span></div>
+                    </div>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quick%20quote." class="btn btn-success rounded-pill w-100 py-2" target="_blank"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid copyright text-body py-4">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 text-center text-md-end mb-md-0">
+                <i class="fas fa-copyright me-2"></i><a class="text-white" href="index.html">A.C C Global Solar Energy</a>, All rights reserved.
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="easing.min.js"></script>
+<script src="waypoints.min.js"></script>
+<script src="main.js"></script>
+<script>
+    // Inverter type filter
+    function filterInverters(type, btn) {
+        document.querySelectorAll('.type-tag').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        document.querySelectorAll('.inverter-item').forEach(item => {
+            if (type === 'all' || item.dataset.type === type) {
+                item.style.display = 'block';
+                setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 50);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => { item.style.display = 'none'; }, 300);
+            }
+        });
+    }
+
+    // Load calculator
+    let totalWatts = 0;
+    function toggleLoad(el) {
+        const watt = parseInt(el.dataset.watt);
+        if (el.classList.contains('selected')) {
+            el.classList.remove('selected');
+            totalWatts -= watt;
+        } else {
+            el.classList.add('selected');
+            totalWatts += watt;
+        }
+        document.getElementById('totalLoad').textContent = totalWatts + 'W';
+        
+        let rec = 'Select appliances to see recommendation';
+        if (totalWatts > 0 && totalWatts <= 800) rec = 'Recommended: 1KVA Inverter (₦65,000)';
+        else if (totalWatts <= 1600) rec = 'Recommended: 2KVA Inverter (₦95,000)';
+        else if (totalWatts <= 2400) rec = 'Recommended: 3KVA Inverter (₦145,000)';
+        else if (totalWatts <= 4000) rec = 'Recommended: 5KVA Inverter (₦220,000)';
+        else if (totalWatts > 4000) rec = 'Recommended: 10KVA Inverter (₦380,000) or higher';
+        document.getElementById('recommendation').textContent = rec;
+    }
+
+    // Card entrance animation
+    document.querySelectorAll('.inverter-item').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+</script>
+</body>
+</html>

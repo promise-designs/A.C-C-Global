@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>A.C C Global Website</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="style.css" rel="stylesheet">
+    </head>
+
+    <body>
+<!-- Spinner Start -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<!-- Spinner End -->
+
+<!-- Topbar Start -->
+<div class="container-fluid bg-primary px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a href="tel:+2349065604615"><small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>0906 560 4615</small></a>
+                <a href="#"><small class="me-3 text-light"><i class="fa fa-truck me-2"></i>Nationwide Delivery</small></a>
+                <a href="https://wa.me/2349065604615" target="_blank"><small class="text-light"><i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp</small></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-sun me-3"></i>A.C C Global Solar Energy</h1>
+            <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                
+                <!-- Services Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-installation.html" class="dropdown-item">Solar Installation</a>
+                        <a href="maintenance-repair.html" class="dropdown-item">Maintenance & Repair</a>
+                        <a href="energy-consultation.html" class="dropdown-item">Energy Consultation</a>
+                        <a href="nationwide-delivery.html" class="dropdown-item">Nationwide Delivery</a>
+                    </div>
+                </div>
+                
+                <!-- Products Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
+                    <div class="dropdown-menu rounded m-0">
+                        <a href="solar-panels.html" class="dropdown-item">Solar Panels</a>
+                        <a href="solar-battery.html" class="dropdown-item">Solar Batteries</a>
+                        <a href="solar-inverters.html" class="dropdown-item">Solar Inverters</a>
+                        <a href="charge-controllers.html" class="dropdown-item">Charge Controllers</a>
+                        <a href="solar-freezers.html" class="dropdown-item">Solar Freezers</a>
+                        <a href="solar-generators.html" class="dropdown-item">Solar Generators</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="other-products.html" class="dropdown-item">Other Products</a>
+                    </div>
+                </div>
+                
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quote." class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" target="_blank"><i class="fab fa-whatsapp me-2"></i>Get a Quote</a>
+        </div>
+    </nav>
+
+    <!-- Carousel Start -->
+    <div class="carousel-header">
+        <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img src="carousel1.png" class="img-fluid" alt="Solar Panels Installation">
+                    <div class="carousel-caption">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Power Your Home & Business</h4>
+                            <h1 class="display-2 text-capitalize text-white mb-4">Reliable Solar Energy Solutions!</h1>
+                            <p class="mb-5 fs-5">A.C C Global Solar Energy — your trusted dealer in solar panels, batteries, inverters, charge controllers, and complete solar systems. Located at Alaba International Market, Ojo, Lagos.</p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quote." target="_blank">Get a Free Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="carousel2.png" class="img-fluid" alt="Solar Batteries and Inverters">
+                    <div class="carousel-caption">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Sales, Installation & Maintenance</h4>
+                            <h1 class="display-2 text-capitalize text-white mb-4">Quality Solar Products & Expert Service</h1>
+                            <p class="mb-5 fs-5">We supply and install premium solar batteries, inverters, charge controllers, solar freezers, and generators. Professional maintenance and repair services available.</p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="products.html">Explore Products</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="carousel3.png" class="img-fluid" alt="Nationwide Delivery">
+                    <div class="carousel-caption">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">We Deliver Anywhere in Nigeria</h4>
+                            <h1 class="display-2 text-capitalize text-white mb-4">Nationwide Delivery Service!</h1>
+                            <p class="mb-5 fs-5">No matter your state — Lagos, Abuja, Port Harcourt, Kano, or anywhere in Nigeria — we deliver your solar products safely and on time. Call us today!</p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="tel:+2349065604615">Call Now: 0906 560 4615</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon btn bg-primary" aria-hidden="false"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                <span class="carousel-control-next-icon btn bg-primary" aria-hidden="false"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
+    </div>
+<!-- Search Bar Start -->
+<div class="container-fluid search-bar position-relative" style="top: -50%; transform: translateY(-50%);">
+    <div class="container">
+        <div class="position-relative rounded-pill w-100 mx-auto p-5" style="background: rgba(196, 30, 58, 0.9);">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-4 col-lg-3">
+                    <select class="form-select border-0 rounded-pill py-3 ps-4">
+                        <option selected>All Categories</option>
+                        <option>Solar Panels</option>
+                        <option>Solar Batteries</option>
+                        <option>Solar Inverters</option>
+                        <option>Charge Controllers</option>
+                        <option>Solar Freezers</option>
+                        <option>Solar Generators</option>
+                        <option>Other Products</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-lg-7">
+                    <input class="form-control border-0 rounded-pill py-3 ps-4" type="text" placeholder="Search solar products... e.g. 200W panel, 200Ah battery">
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <button type="button" class="btn btn-light rounded-pill py-3 px-4 w-100 fw-bold text-primary">
+                        <i class="fa fa-search me-2"></i>Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search Bar End -->
+
+<!-- Navbar & Hero End -->
+
+<!-- About Start -->
+<div class="container-fluid about py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5">
+                <div class="h-100" style="border: 50px solid; border-color: transparent #C41E3A transparent #C41E3A;">
+                    <img src="aboutA.C.png" class="img-fluid w-100 h-100" alt="A.C C Global Solar Energy Shop - Alaba International Market">
+                </div>
+            </div>
+            <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
+                <h5 class="section-about-title pe-3">About Us</h5>
+                <h1 class="mb-4">Welcome to <span class="text-primary">A.C C Global Solar Energy</span></h1>
+                <p class="mb-4">We are a trusted and registered dealer in all kinds of solar energy systems, located at <strong>Shop F1485B, Alaba International Market, Ojo, Lagos State</strong>. With years of experience in the industry, we have built a reputation for supplying only the highest quality solar products at competitive prices.</p>
+                <p class="mb-4">From solar panels and batteries to inverters, charge controllers, solar freezers, and generators — we stock everything you need to power your home or business with clean, reliable energy. We also provide professional installation, maintenance, and repair services. Plus, we deliver nationwide to every state in Nigeria.</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Premium Solar Panels</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Quality Solar Batteries</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Solar Inverters & Controllers</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Solar Freezers & Generators</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Expert Installation & Repair</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Nationwide Delivery</p>
+                    </div>
+                </div>
+                <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="about.html">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Services Start -->
+<div class="container-fluid bg-light service py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Services</h5>
+            <h1 class="mb-0">Our Services</h1>
+        </div>
+        <div class="row g-4">
+            <!-- LEFT COLUMN (text-end, icon on right) -->
+            <div class="col-lg-6">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                            <div class="service-content text-end">
+                                <h5 class="mb-4">Solar Panel Installation</h5>
+                                <p class="mb-0">Professional installation of high-efficiency monocrystalline and polycrystalline solar panels for homes, offices, and industrial buildings. We assess your energy needs and design a system that maximizes power output.
+                                </p>
+                            </div>
+                            <div class="service-icon p-4">
+                                <i class="fa fa-solar-panel fa-4x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                            <div class="service-content text-end">
+                                <h5 class="mb-4">Solar Battery Sales</h5>
+                                <p class="mb-0">We stock premium deep-cycle solar batteries including tubular, lithium-ion, and gel batteries from trusted brands. All batteries come with warranty and are tested for maximum performance and longevity.
+                                </p>
+                            </div>
+                            <div class="service-icon p-4">
+                                <i class="fa fa-car-battery fa-4x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                            <div class="service-content text-end">
+                                <h5 class="mb-4">Inverter & Charge Controller</h5>
+                                <p class="mb-0">Sales and installation of pure sine wave inverters and MPPT/PWM charge controllers. We match the right inverter capacity to your load requirements for seamless power backup.
+                                </p>
+                            </div>
+                            <div class="service-icon p-4">
+                                <i class="fa fa-bolt fa-4x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                            <div class="service-content text-end">
+                                <h5 class="mb-4">Solar Freezer & Generator</h5>
+                                <p class="mb-0">Energy-efficient solar-powered freezers and portable solar generators perfect for homes, shops, and outdoor use. Zero fuel cost, zero noise, pure solar power.
+                                </p>
+                            </div>
+                            <div class="service-icon p-4">
+                                <i class="fa fa-snowflake fa-4x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RIGHT COLUMN (text-start, icon on left) -->
+            <div class="col-lg-6">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                            <div class="service-icon p-4">
+                                <i class="fa fa-tools fa-4x text-primary"></i>
+                            </div>
+                            <div class="service-content">
+                                <h5 class="mb-4">System Maintenance & Repair</h5>
+                                <p class="mb-0">Comprehensive maintenance services including panel cleaning, battery health checks, inverter troubleshooting, and wiring inspections. We keep your solar system running at peak efficiency year-round.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                            <div class="service-icon p-4">
+                                <i class="fa fa-truck fa-4x text-primary"></i>
+                            </div>
+                            <div class="service-content">
+                                <h5 class="mb-4">Nationwide Delivery</h5>
+                                <p class="mb-0">We deliver solar products to every state in Nigeria — Lagos, Abuja, Port Harcourt, Kano, Enugu, and beyond. Secure packaging, reliable logistics partners, and real-time tracking on request.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                            <div class="service-icon p-4">
+                                <i class="fa fa-clipboard-check fa-4x text-primary"></i>
+                            </div>
+                            <div class="service-content">
+                                <h5 class="mb-4">Energy Consultation</h5>
+                                <p class="mb-0">Free energy audits and load analysis to determine the perfect solar system size for your needs. We calculate your daily consumption and recommend the most cost-effective setup.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                            <div class="service-icon p-4">
+                                <i class="fa fa-headset fa-4x text-primary"></i>
+                            </div>
+                            <div class="service-content">
+                                <h5 class="mb-4">After-Sales Support</h5>
+                                <p class="mb-0">Our relationship doesn't end at sale. We provide ongoing technical support, warranty claims assistance, and upgrade recommendations. Call or WhatsApp us anytime — we're here for you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="col-12">
+                <div class="text-center">
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="services.html" target="_blank">Enquire About Our Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+<!-- Products Start -->
+<div class="container-fluid blog py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Our Products</h5>
+            <h1 class="mb-4">More Than Just Solar</h1>
+            <p class="mb-0">While solar energy is our specialty, A.C C Global Solar Energy also stocks a wide range of quality electronics, home appliances, and accessories. Browse our other product categories below — all available with nationwide delivery.
+            </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <!-- Product Category 1: Electronics & Gadgets -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <div class="blog-img-inner">
+                            <img class="img-fluid w-100 rounded-top" src="img/blog-1.jpg" alt="Electronics and Gadgets">
+                            <div class="blog-icon">
+                                <a href="other-products.html" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-box text-primary me-2"></i>100+ Items</small>
+                            <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-star text-primary me-2"></i>4.9</a>
+                            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I'm%20interested%20in%20your%20Electronics%20and%20Gadgets." class="btn-hover flex-fill text-center text-white py-2" target="_blank"><i class="fab fa-whatsapp text-primary me-2"></i>Order</a>
+                        </div>
+                    </div>
+                    <div class="blog-content border border-top-0 rounded-bottom p-4">
+                        <p class="mb-3 text-primary fw-bold">Electronics & Gadgets</p>
+                        <a href="other-products.html" class="h4">Phones, Laptops & Accessories</a>
+                        <p class="my-3">Quality smartphones, laptops, chargers, cables, power banks, and tech accessories at competitive prices. All products tested and guaranteed.</p>
+                        <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20see%20your%20Electronics%20and%20Gadgets%20catalog." class="btn btn-primary rounded-pill py-2 px-4" target="_blank">View on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Category 2: Home Appliances -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <div class="blog-img-inner">
+                            <img class="img-fluid w-100 rounded-top" src="img/blog-2.jpg" alt="Home Appliances">
+                            <div class="blog-icon">
+                                <a href="other-products.html" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-box text-primary me-2"></i>80+ Items</small>
+                            <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-star text-primary me-2"></i>4.8</a>
+                            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I'm%20interested%20in%20your%20Home%20Appliances." class="btn-hover flex-fill text-center text-white py-2" target="_blank"><i class="fab fa-whatsapp text-primary me-2"></i>Order</a>
+                        </div>
+                    </div>
+                    <div class="blog-content border border-top-0 rounded-bottom p-4">
+                        <p class="mb-3 text-primary fw-bold">Home Appliances</p>
+                        <a href="other-products.html" class="h4">TVs, Fans, Kitchen & More</a>
+                        <p class="my-3">LED TVs, standing fans, blenders, rice cookers, pressing irons, and other essential home appliances. Durable brands, affordable prices.</p>
+                        <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20see%20your%20Home%20Appliances%20catalog." class="btn btn-primary rounded-pill py-2 px-4" target="_blank">View on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Category 3: Solar Accessories -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <div class="blog-img-inner">
+                            <img class="img-fluid w-100 rounded-top" src="img/blog-3.jpg" alt="Solar Accessories">
+                            <div class="blog-icon">
+                                <a href="other-products.html" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-box text-primary me-2"></i>50+ Items</small>
+                            <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-star text-primary me-2"></i>5.0</a>
+                            <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I'm%20interested%20in%20your%20Solar%20Accessories." class="btn-hover flex-fill text-center text-white py-2" target="_blank"><i class="fab fa-whatsapp text-primary me-2"></i>Order</a>
+                        </div>
+                    </div>
+                    <div class="blog-content border border-top-0 rounded-bottom p-4">
+                        <p class="mb-3 text-primary fw-bold">Solar Accessories</p>
+                        <a href="other-products.html" class="h4">Cables, Mounts, Breakers & More</a>
+                        <p class="my-3">Solar cables, MC4 connectors, mounting brackets, circuit breakers, surge protectors, and all the small parts that make your system complete.</p>
+                        <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20see%20your%20Solar%20Accessories%20catalog." class="btn btn-primary rounded-pill py-2 px-4" target="_blank">View on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Products End -->
+
+<!-- Contact Start -->
+<div class="container-fluid contact bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Contact Us</h5>
+            <h1 class="mb-0">Get In Touch With Us</h1>
+        </div>
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-4">
+                <div class="bg-white rounded p-4">
+                    <div class="text-center mb-4">
+                        <i class="fa fa-map-marker-alt fa-3x text-primary"></i>
+                        <h4 class="text-primary">Address</h4>
+                        <p class="mb-0">Shop F1485B, Alaba International Market,<br> Ojo, Lagos State, Nigeria</p>
+                    </div>
+                    <div class="text-center mb-4">
+                        <i class="fa fa-phone-alt fa-3x text-primary mb-3"></i>
+                        <h4 class="text-primary">Mobile</h4>
+                        <p class="mb-0"><a href="tel:+2349065604615">0906 560 4615</a></p>
+                        <p class="mb-0"><a href="tel:+23481050384">0810 503 8445</a></p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fab fa-whatsapp fa-3x text-primary mb-3"></i>
+                        <h4 class="text-primary">WhatsApp</h4>
+                        <p class="mb-0"><a href="https://wa.me/2349065604615" target="_blank">0906 560 4615</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <h2 class="mb-3">Send us a message</h2>
+                <h4 class="lh-base mb-4">Have a question about our solar products or services? Fill out the form below and we'll get back to you as soon as possible. For faster response, chat with us on <a href="https://wa.me/2349065604615" target="_blank">WhatsApp</a>.</h4>
+                        <form action="contact.php" method="POST">
+    <input type="hidden" name="form_type" value="contact">
+    <!-- rest of your form stays the same -->
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0" id="name" placeholder="Your Name" required>
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control border-0" id="email" placeholder="Your Email" required>
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0" id="subject" placeholder="Subject" required>
+                                <label for="subject">Subject</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 160px" required></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12">
+                <div class="rounded">
+                    <iframe class="rounded w-100" 
+                    style="height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.8!2d3.123456!3d6.456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAlaba%20International%20Market%2C%20Ojo%2C%20Lagos!5e0!3m2!1sen!2sng!4v1694259649153!5m2!1sen!2sng" 
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+
+<!-- Subscribe Start -->
+<div class="container-fluid subscribe py-5">
+    <div class="container text-center py-5">
+        <div class="mx-auto text-center" style="max-width: 900px;">
+            <h5 class="subscribe-title px-3">Stay Updated</h5>
+            <h1 class="text-white mb-4">Get The Latest Deals</h1>
+            <p class="text-white mb-5">Subscribe to receive updates on new solar products, price drops, restocks, and exclusive offers. Be the first to know when we get new arrivals at A.C C Global Solar Energy.
+            </p>
+  <form action="contact.php" method="POST">
+    <input type="hidden" name="form_type" value="subscribe">
+    <div class="position-relative mx-auto">
+        <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" 
+               type="email" 
+               name="subscribe_email" 
+               placeholder="Enter your email address" 
+               required>
+        <button type="submit" 
+                class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">
+            Subscribe
+        </button>
+    </div>
+</form>
+
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->
+
+<!-- Footer Start -->
+<div class="container-fluid footer py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <!-- Column 1: Get In Touch -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Get In Touch</h4>
+                    <a href="https://maps.google.com/?q=Alaba+International+Market+Ojo+Lagos" target="_blank"><i class="fas fa-home me-2"></i> Shop F1485B, Alaba International Market, Ojo, Lagos</a>
+                    <a href="mailto:accglobalsolar@gmail.com"><i class="fas fa-envelope me-2"></i> accglobalsolar@gmail.com</a>
+                    <a href="tel:+2349065604615"><i class="fas fa-phone me-2"></i> 0906 560 4615</a>
+                    <a href="tel:+23481050384" class="mb-3"><i class="fab fa-whatsapp me-2"></i> 0810 503 8445</a>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-share fa-2x text-white me-2"></i>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://facebook.com/accglobalsolar" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://instagram.com/accglobalsolar" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/2349065604615" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 2: Company -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Company</h4>
+                    <a href="about.html"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                    <a href="services.html"><i class="fas fa-angle-right me-2"></i> Our Services</a>
+                    <a href="solar-panels.html"><i class="fas fa-angle-right me-2"></i> Solar Products</a>
+                    <a href="other-products.html"><i class="fas fa-angle-right me-2"></i> Other Products</a>                </div>
+            </div>
+            <!-- Column 4: Business Hours (Replaced Language/Currency) -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item">
+                    <h4 class="text-white mb-4">Business Hours</h4>
+                    <div class="bg-dark rounded p-3 mb-4">
+                        <div class="d-flex justify-content-between text-white mb-2">
+                            <span>Monday – Saturday</span>
+                            <span class="text-primary">8:00 AM – 6:00 PM</span>
+                        </div>
+                        <div class="d-flex justify-content-between text-white mb-2">
+                            <span>Sunday</span>
+                            <span class="text-danger">Closed</span>
+                        </div>
+                        <div class="d-flex justify-content-between text-white">
+                            <span>Public Holidays</span>
+                            <span class="text-warning">Call First</span>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-white mb-3 mt-4">Quick Quote</h4>
+                    <a href="https://wa.me/2349065604615?text=Hello%20A.C%20C%20Global%20Solar%20Energy,%20I%20want%20to%20get%20a%20quick%20quote." class="btn btn-success rounded-pill w-100 py-2" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright text-body py-4">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 text-center text-md-end mb-md-0">
+                <i class="fas fa-copyright me-2"></i><a class="text-white" href="index.html">A.C C Global Solar Energy</a>, All rights reserved.
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="easing.min.js"></script>
+        <script src="waypoints.min.js"></script>
+        
+
+        <!-- Template Javascript -->
+        <script src="main.js"></script>
+    </body>
+
+</html>
